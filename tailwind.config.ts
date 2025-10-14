@@ -19,6 +19,10 @@ const config: Config = {
         sans: ['var(--font-inter)', ...fontFamily.sans],
         serif: ['var(--font-lora)', ...fontFamily.serif],
       },
+      boxShadow: {
+        'primary-hover': '0 4px 15px rgba(44, 95, 45, 0.2)',
+        'card-hover': '0 8px 25px rgba(0, 0, 0, 0.08)',
+      },
       keyframes: {
         aurora: {
           'from': { transform: 'translate(0px, 0px) rotate(0deg)' },
