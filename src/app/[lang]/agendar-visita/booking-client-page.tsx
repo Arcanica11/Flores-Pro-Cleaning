@@ -5,7 +5,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Step1_ServiceSelector from "@/components/booking/Step1_ServiceSelector";
 import Step2_DateTimePicker from "@/components/booking/Step2_DateTimePicker";
 import Step3_UserInfoForm from "@/components/booking/Step3_UserInfoForm";
-import { Locale } from "../../../../i18n.config";
+import { Locale } from "@/i18n.config";
 import { getDictionary } from "@/lib/dictionary";
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
