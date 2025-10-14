@@ -1,9 +1,8 @@
 import Button from '../ui/Button';
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '../../../i18n.config';
 
 type FinalCTAProps = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 export default async function FinalCTA({ lang }: FinalCTAProps) {

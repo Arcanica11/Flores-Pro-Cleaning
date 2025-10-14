@@ -1,9 +1,14 @@
+// src/lib/dictionary.ts
 import 'server-only';
-import type { Locale } from '@/i18n.config';
+import esDict from '@/dictionaries/es.json';
+import enDict from '@/dictionaries/en.json';
 
 const dictionaries = {
-  en: () => import('@/dictionaries/en.json').then(module => module.default),
-  es: () => import('@/dictionaries/es.json').then(module => module.default),
+  en: () => Promise.resolve(enDict),
+  es: () => Promise.resolve(esDict),
 };
 
-export const getDictionary = async (locale: Locale) => dictionaries[locale]();
+export const getDictionary = async (lang: 'es' | 'en') => {
+  const loader = dictionaries[lang] || dictionaries.es;
+  return loader();
+};

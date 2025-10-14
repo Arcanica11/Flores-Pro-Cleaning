@@ -1,9 +1,8 @@
 import { Calendar, MapPin, Sparkles } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '../../../i18n.config';
 
 type ProcessProps = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 export default async function Process({ lang }: ProcessProps) {
