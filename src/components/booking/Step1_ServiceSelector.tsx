@@ -3,37 +3,26 @@
 import { useBookingStore } from "@/lib/store";
 import { getDictionary } from "@/lib/dictionary";
 import { Locale } from "../../../i18n.config";
-import { useEffect, useState } from "react";
-
-type Step1Props = {
-  lang: Locale;
-};
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
-export default function Step1_ServiceSelector({ lang }: Step1Props) {
+type Step1Props = {
+  lang: Locale;
+  dictionary: Dictionary['booking'];
+};
+
+export default function Step1_ServiceSelector({ lang, dictionary }: Step1Props) {
   const { setService } = useBookingStore();
-  const [dict, setDict] = useState<Dictionary | null>(null);
 
-  useEffect(() => {
-    const fetchDict = async () => {
-      const d = await getDictionary(lang);
-      setDict(d);
-    };
-    fetchDict();
-  }, [lang]);
-
-  const services = dict ? [
-    { id: 'residential', name: dict.booking.services.residential },
-    { id: 'commercial', name: dict.booking.services.commercial },
-    { id: 'deep', name: dict.booking.services.deep },
-  ] : [];
-
-  if (!dict) return <div>Loading...</div>;
+  const services = [
+    { id: 'residential', name: dictionary.services.residential },
+    { id: 'commercial', name: dictionary.services.commercial },
+    { id: 'deep', name: dictionary.services.deep },
+  ];
 
   return (
     <div>
-      <h2 className="text-3xl font-bold text-center mb-8">{dict.booking.step1_title}</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">{dictionary.step1_title}</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {services.map((service) => (
           <button
