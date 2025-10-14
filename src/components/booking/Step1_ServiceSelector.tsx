@@ -39,7 +39,7 @@ export default function Step1_ServiceSelector({ lang }: Step1Props) {
           <button
             key={service.id}
             onClick={() => setService(service.id)}
-            className="p-8 border rounded-lg text-xl font-semibold hover:bg-primary hover:text-white transition-colors"
+            className="p-8 border rounded-lg text-xl font-semibold hover:bg-primary hover:text-white transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-card-hover"
           >
             {service.name}
           </button>

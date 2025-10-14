@@ -13,7 +13,7 @@ const Button = ({ href, children }: ButtonProps) => {
   return (
     <Link href={href}>
       <motion.button
-        className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-primary rounded-lg overflow-hidden group"
+        className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-primary rounded-lg overflow-hidden group transition-shadow duration-300 ease-in-out hover:shadow-primary-hover"
         whileHover="hover"
       >
         <span>{children}</span>

@@ -45,17 +45,17 @@ export default function Step3_UserInfoForm({ lang }: Step3Props) {
       <form onSubmit={handleSubmit(onSubmit)} className="max-w-md mx-auto">
         <div className="mb-4">
           <label htmlFor="name" className="block mb-2">{dict.form.name}</label>
-          <input {...register("name", { required: true })} id="name" className="w-full p-2 border rounded-md" />
+          <input {...register("name", { required: true })} id="name" className="w-full p-2 border rounded-md transition-colors duration-300 ease-in-out focus:border-primary focus:ring-1 focus:ring-primary" />
           {errors.name && <span className="text-red-500 text-sm">This field is required</span>}
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block mb-2">{dict.form.email}</label>
-          <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} id="email" className="w-full p-2 border rounded-md" />
+          <input {...register("email", { required: true, pattern: /^\S+@\S+$/i })} id="email" className="w-full p-2 border rounded-md transition-colors duration-300 ease-in-out focus:border-primary focus:ring-1 focus:ring-primary" />
           {errors.email && <span className="text-red-500 text-sm">Please enter a valid email</span>}
         </div>
         <div className="mb-4">
           <label htmlFor="phone" className="block mb-2">{dict.form.phone}</label>
-          <input {...register("phone", { required: true })} id="phone" className="w-full p-2 border rounded-md" />
+          <input {...register("phone", { required: true })} id="phone" className="w-full p-2 border rounded-md transition-colors duration-300 ease-in-out focus:border-primary focus:ring-1 focus:ring-primary" />
           {errors.phone && <span className="text-red-500 text-sm">This field is required</span>}
         </div>
         <button type="submit" className="w-full p-3 bg-primary text-white rounded-md font-bold hover:bg-primary/90">
