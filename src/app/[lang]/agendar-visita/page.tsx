@@ -1,50 +1,9 @@
-"use client";
+import { getDictionary } from '@/lib/dictionary';
+import { Locale } from '../../../../i18n.config';
+import BookingClientPage from './booking-client-page';
 
-import { useBookingStore } from "@/lib/store";
-import { AnimatePresence, motion } from "framer-motion";
-import Step1_ServiceSelector from "@/components/booking/Step1_ServiceSelector";
-import Step2_DateTimePicker from "@/components/booking/Step2_DateTimePicker";
-import Step3_UserInfoForm from "@/components/booking/Step3_UserInfoForm";
-import { Locale } from "../../../../i18n.config";
+export default async function BookingPage({ params: { lang } }: { params: { lang: Locale } }) {
+  const dict = await getDictionary(lang);
 
-export default function BookingPage({ params: { lang } }: { params: { lang: Locale } }) {
-  const { currentStep } = useBookingStore();
-
-  const variants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-    },
-    exit: (direction: number) => ({
-      x: direction < 0 ? "100%" : "-100%",
-      opacity: 0,
-    }),
-  };
-
-  return (
-    <div className="container mx-auto px-4 py-12">
-      <AnimatePresence initial={false} custom={1}>
-        <motion.div
-          key={currentStep}
-          custom={1}
-          variants={variants}
-          initial="enter"
-          animate="center"
-          exit="exit"
-          transition={{
-            x: { type: "spring", stiffness: 300, damping: 30 },
-            opacity: { duration: 0.2 },
-          }}
-        >
-          {currentStep === 1 && <Step1_ServiceSelector lang={lang} />}
-          {currentStep === 2 && <Step2_DateTimePicker lang={lang} />}
-          {currentStep === 3 && <Step3_UserInfoForm lang={lang} />}
-        </motion.div>
-      </AnimatePresence>
-    </div>
-  );
+  return <BookingClientPage lang={lang} dictionary={dict} />;
 }

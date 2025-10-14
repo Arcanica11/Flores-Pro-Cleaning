@@ -6,25 +6,17 @@ import { Locale } from "../../../i18n.config";
 import { useEffect, useState } from "react";
 import { get_calendar_availability } from "@/lib/google-calendar";
 
-type Step2Props = {
-  lang: Locale;
-};
-
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
-export default function Step2_DateTimePicker({ lang }: Step2Props) {
+type Step2Props = {
+  lang: Locale;
+  dictionary: Dictionary['booking'];
+};
+
+export default function Step2_DateTimePicker({ lang, dictionary }: Step2Props) {
   const { setSlot, prevStep } = useBookingStore();
-  const [dict, setDict] = useState<Dictionary | null>(null);
   const [date, setDate] = useState(new Date());
   const [busySlots, setBusySlots] = useState<any[]>([]);
-
-  useEffect(() => {
-    const fetchDict = async () => {
-      const d = await getDictionary(lang);
-      setDict(d);
-    };
-    fetchDict();
-  }, [lang]);
 
   useEffect(() => {
     const fetchAvailability = async () => {
@@ -53,12 +45,10 @@ export default function Step2_DateTimePicker({ lang }: Step2Props) {
     setSlot(selectedDate);
   };
 
-  if (!dict) return <div>Loading...</div>;
-
   return (
     <div>
       <button onClick={prevStep} className="mb-4 text-sm text-gray-600">&larr; Back</button>
-      <h2 className="text-3xl font-bold text-center mb-8">{dict.booking.step2_title}</h2>
+      <h2 className="text-3xl font-bold text-center mb-8">{dictionary.step2_title}</h2>
       <div className="flex flex-col items-center">
         <input type="date" onChange={handleDateChange} className="p-2 border rounded-md mb-8" />
         <div className="grid grid-cols-3 gap-4">
