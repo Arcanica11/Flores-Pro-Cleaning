@@ -34,7 +34,7 @@ const Hero = ({ title }: HeroProps) => {
     <section className="relative h-screen w-full flex items-center justify-center">
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
+        style={{ backgroundImage: "url('/unsplash-image-U39FPHKfDu0.webp')" }}
       />
       <div className="absolute inset-0 bg-soft-black/50" />
       <motion.h1

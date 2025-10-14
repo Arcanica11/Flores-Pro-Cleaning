@@ -3,12 +3,11 @@
 import { useBookingStore } from "@/lib/store";
 import { useForm } from "react-hook-form";
 import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "../../../i18n.config";
 import { useEffect, useState } from "react";
 import { create_calendar_appointment } from "@/lib/google-calendar";
 
 type Step3Props = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
@@ -33,24 +32,8 @@ export default function Step3_UserInfoForm({ lang }: Step3Props) {
   }, [lang]);
 
   const onSubmit = async (data: FormData) => {
-    if (!selectedSlot || !selectedService) return;
-
-    const appointmentData = {
-      startTime: selectedSlot.toISOString(),
-      endTime: new Date(selectedSlot.getTime() + 60 * 60 * 1000).toISOString(), // Assume 1-hour slots
-      summary: `Cleaning Appointment: ${selectedService}`,
-      description: `Client: ${data.name}\nEmail: ${data.email}\nPhone: ${data.phone}\nService: ${selectedService}`,
-      attendeeEmail: data.email,
-    };
-
-    const result = await create_calendar_appointment(appointmentData);
-
-    if (result.success) {
-      alert('Appointment booked successfully!');
-      reset();
-    } else {
-      alert(`Error: ${result.error}`);
-    }
+    alert('Form submitted (simulation). Thank you!');
+    reset();
   };
 
   if (!dict) return <div>Loading...</div>;

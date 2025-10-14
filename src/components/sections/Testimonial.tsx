@@ -1,8 +1,7 @@
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '../../../i18n.config';
 
 type TestimonialProps = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 export default async function Testimonial({ lang }: TestimonialProps) {

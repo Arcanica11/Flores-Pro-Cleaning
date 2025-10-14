@@ -1,9 +1,8 @@
 import Link from 'next/link';
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '../../../i18n.config';
 
 type NavbarProps = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 export default async function Navbar({ lang }: NavbarProps) {

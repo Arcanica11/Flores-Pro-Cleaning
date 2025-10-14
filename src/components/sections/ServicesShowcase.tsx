@@ -2,10 +2,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from '../../../i18n.config';
 
 type ServicesShowcaseProps = {
-  lang: Locale;
+  lang: 'es' | 'en';
 };
 
 export default async function ServicesShowcase({ lang }: ServicesShowcaseProps) {
@@ -17,7 +16,7 @@ export default async function ServicesShowcase({ lang }: ServicesShowcaseProps) 
         <div className="grid md:grid-cols-5 gap-12 items-center">
           <div className="md:col-span-3">
             <Image
-              src="/images/kitchen.jpg"
+              src="/unsplash-image-BqTsh7ivTB8.webp"
               alt="Modern Kitchen"
               width={800}
               height={600}

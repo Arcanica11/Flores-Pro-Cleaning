@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
 import "../globals.css";
-import { i18n } from "../../../i18n.config";
+import Navbar from "@/components/sections/Navbar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -19,19 +19,12 @@ export const metadata: Metadata = {
   description: "Premium cleaning services with a touch of serenity.",
 };
 
-export async function generateStaticParams() {
-  return i18n.locales.map(locale => ({ lang: locale }));
-}
-
-import Navbar from "@/components/sections/Navbar";
-import { Locale } from "../../../i18n.config";
-
 export default async function RootLayout({
   children,
   params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { lang: Locale };
+  params: { lang: 'es' | 'en' };
 }>) {
   return (
     <html lang={params.lang}>
