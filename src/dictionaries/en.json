@@ -1,0 +1,48 @@
+{
+  "navbar": {
+    "services": "Services",
+    "about": "About Us",
+    "book": "Book Visit"
+  },
+  "hero": {
+    "title": "Clean & Serene"
+  },
+  "services": {
+    "title": "Residential Cleaning",
+    "description": "Our professional team provides top-quality cleaning services for your home, ensuring a spotless and healthy environment.",
+    "explore": "Explore Service"
+  },
+  "process": {
+    "title": "Our Simplified Process",
+    "step1_title": "Schedule",
+    "step1_desc": "Book your visit in seconds through our easy-to-use online platform.",
+    "step2_title": "Visit",
+    "step2_desc": "Our certified professionals arrive on time with all the necessary equipment.",
+    "step3_title": "Clean",
+    "step3_desc": "We perform a thorough, high-quality cleaning, leaving your space immaculate."
+  },
+  "testimonial": {
+    "text": "Flores Pro-Cleaning transformed our home. Their attention to detail and professionalism are unmatched. Highly recommended!",
+    "author": "Maria S., Happy Customer"
+  },
+  "cta": {
+    "title": "Ready for a Spotless Home?",
+    "button": "Book Your Cleaning"
+  },
+  "booking": {
+    "step1_title": "Select a Service",
+    "services": {
+      "residential": "Residential Cleaning",
+      "commercial": "Commercial Cleaning",
+      "deep": "Deep Cleaning"
+    },
+    "step2_title": "Select Date & Time",
+    "step3_title": "Enter Your Details",
+    "form": {
+        "name": "Name",
+        "email": "Email",
+        "phone": "Phone",
+        "submit": "Book Appointment"
+    }
+  }
+}
