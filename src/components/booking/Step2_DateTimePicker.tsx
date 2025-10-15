@@ -9,11 +9,10 @@ import { get_calendar_availability } from "@/lib/google-calendar";
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
 type Step2Props = {
-  lang: Locale;
   dictionary: Dictionary['booking'];
 };
 
-export default function Step2_DateTimePicker({ lang, dictionary }: Step2Props) {
+export default function Step2_DateTimePicker({ dictionary }: Step2Props) {
   const { setSlot, prevStep } = useBookingStore();
   const [date, setDate] = useState(new Date());
   const [busySlots, setBusySlots] = useState<any[]>([]);

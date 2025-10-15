@@ -1,4 +1,4 @@
-"use client"; // <-- CRITICAL: ADD THIS LINE
+"use client";
 
 import { useBookingStore } from "@/lib/store";
 import { AnimatePresence, motion } from "framer-motion";
@@ -31,9 +31,9 @@ export default function BookingClientPage({ lang, dictionary }: { lang: Locale, 
           exit="exit"
           transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.2 } }}
         >
-          {currentStep === 1 && <Step1_ServiceSelector lang={lang} dictionary={dictionary.booking} />}
-          {currentStep === 2 && <Step2_DateTimePicker lang={lang} dictionary={dictionary.booking} />}
-          {currentStep === 3 && <Step3_UserInfoForm lang={lang} dictionary={dictionary.booking} formDictionary={dictionary.form} />}
+          {currentStep === 1 && <Step1_ServiceSelector dictionary={dictionary.booking} />}
+          {currentStep === 2 && <Step2_DateTimePicker dictionary={dictionary.booking} />}
+          {currentStep === 3 && <Step3_UserInfoForm dictionary={dictionary.booking} formDictionary={dictionary.form} />}
         </motion.div>
       </AnimatePresence>
     </div>
