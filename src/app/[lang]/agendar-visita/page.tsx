@@ -1,5 +1,5 @@
 import { getDictionary } from '@/lib/dictionary';
-import { Locale } from "@/i18n.config";
+import { Locale } from "@/languages.config";
 import BookingClientPage from './booking-client-page';
 
 export default async function BookingPage({ params: { lang } }: { params: { lang: Locale } }) {
