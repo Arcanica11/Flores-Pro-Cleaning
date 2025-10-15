@@ -38,6 +38,7 @@
     },
     "step2_title": "Select Date & Time",
     "step3_title": "Enter Your Details",
+    "back_button": "Back",
     "form": {
         "name": "Name",
         "email": "Email",
