@@ -14,15 +14,17 @@ export const dictionary = {
     "explore": "Explorar Servicio"
   },
   "process": {
-    "title": "Nuestro Proceso Simplificado",
-    "step1_title": "Agenda",
-    "step1_desc": "Reserve su visita en segundos a través de nuestra plataforma en línea fácil de usar.",
-    "step2_title": "Visita",
-    "step2_desc": "Nuestros profesionales certificados llegan a tiempo con todo el equipo necesario.",
-    "step3_title": "Limpia",
-    "step3_desc": "Realizamos una limpieza profunda y de alta calidad, dejando su espacio inmaculado."
+    "subtitle": "CÓMO FUNCIONA",
+    "title": "Estimación Gratuita en Casa",
+    "step1_title": "1. Agenda una Visita",
+    "step1_desc": "Al agendar una estimación gratuita, llenarás un formulario que nos ayudará a entender mejor los servicios de limpieza que buscas.",
+    "step2_title": "2. Visita a Domicilio",
+    "step2_desc": "Un miembro del equipo de Flores visitará tu hogar en el día acordado para darte una cotización detallada y sin compromiso.",
+    "step3_title": "3. La Limpieza Perfecta",
+    "step3_desc": "Una vez que apruebes la cotización, nuestro equipo de profesionales visitará tu hogar para transformarlo en un espacio fresco e impecable.",
+    "button": "Agenda tu Estimación"
   },
-  "testimonial": {
+ "testimonial": {
     "text": "Flores Pro-Cleaning transformó nuestro hogar. Su atención al detalle y profesionalismo son inigualables. ¡Muy recomendados!",
     "author": "Maria S., Cliente Satisfecha"
   },

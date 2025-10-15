@@ -13,14 +13,16 @@ export const dictionary = {
     "description": "Our professional team provides top-quality cleaning services for your home, ensuring a spotless and healthy environment.",
     "explore": "Explore Service"
   },
-  "process": {
-    "title": "Our Simplified Process",
-    "step1_title": "Schedule",
-    "step1_desc": "Book your visit in seconds through our easy-to-use online platform.",
-    "step2_title": "Visit",
-    "step2_desc": "Our certified professionals arrive on time with all the necessary equipment.",
-    "step3_title": "Clean",
-    "step3_desc": "We perform a thorough, high-quality cleaning, leaving your space immaculate."
+"process": {
+    "subtitle": "HOW IT WORKS",
+    "title": "Free In-Home Estimate",
+    "step1_title": "1. Schedule a Visit",
+    "step1_desc": "When scheduling a free in-home estimate, you will fill out a form that helps us better understand the kind of cleaning services you're seeking.",
+    "step2_title": "2. In-Home Visit",
+    "step2_desc": "A Flores team member will visit your home on the agreed-upon day to provide you with a detailed, no-obligation free quote.",
+    "step3_title": "3. The Perfect Clean",
+    "step3_desc": "After you approve the estimate, our professional team will visit your home to confidently transform it into a fresh and spotless living space.",
+    "button": "Schedule Your Estimate"
   },
   "testimonial": {
     "text": "Flores Pro-Cleaning transformed our home. Their attention to detail and professionalism are unmatched. Highly recommended!",

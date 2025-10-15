@@ -4,7 +4,7 @@ import Testimonial from '@/components/sections/Testimonial';
 import Process from '@/components/sections/Process';
 import FinalCTA from '@/components/sections/FinalCTA';
 import WhyUs from '@/components/sections/WhyUs';
-import ServicesSection from '@/components/sections/ServicesSection'; // <-- 1. Importar la nueva sección
+import ServicesSection from '@/components/sections/ServicesSection';
 
 export default async function Home({ params: { lang } }: { params: { lang: 'es' | 'en' } }) {
   const dict = await getDictionary(lang);
@@ -12,10 +12,9 @@ export default async function Home({ params: { lang } }: { params: { lang: 'es' 
   return (
     <main>
       <Hero title={dict.hero.title} />
-      {/* 2. Reorganizamos el orden de las secciones para un mejor flujo narrativo */}
       <WhyUs lang={lang} dictionary={dict.why_us} />
       <ServicesSection lang={lang} dictionary={dict.services_section} />
-      <Process lang={lang} />
+      <Process lang={lang} dictionary={dict.process} />
       <Testimonial lang={lang} />
       <FinalCTA lang={lang} />
     </main>
