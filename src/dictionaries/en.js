@@ -55,6 +55,28 @@ export const dictionary = {
             "required": "This field is required",
             "invalid_email": "Please enter a valid email"
         }
-    }
-  }
+    },
+  },
+  "services_section": {
+    "subtitle": "WHAT WE CLEAN",
+    "title": "Our Services",
+    "services": [
+      {
+        "title": "Residential Cleaning",
+        "description": "Refresh the comfort and cleanliness of your home with our expert cleaning. We provide detailed care for every room, from dusting and vacuuming to full kitchen and bathroom sanitation.",
+        "icon": "flores_sparkle.webp"
+      },
+      {
+        "title": "Post-Construction",
+        "description": "Enjoy your newly built or renovated space. Our team handles the cleanup of sawdust, debris, and paint splatters, leaving your new space pristine and ready to enjoy.",
+        "icon": "flores_heart.webp"
+      },
+      {
+        "title": "Eco-Friendly Cleaning",
+        "description": "We pride ourselves on providing environmentally friendly solutions, using natural ingredients and sustainable methods to protect your home and the planet.",
+        "icon": "flores_eco.webp"
+      }
+    ],
+    "button": "View All Services"
+  },
 };

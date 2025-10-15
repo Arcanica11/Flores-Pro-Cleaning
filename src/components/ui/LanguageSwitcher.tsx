@@ -26,7 +26,7 @@ export default function LanguageSwitcher() {
             className={`
               px-3 py-1 rounded-md text-sm font-medium transition-colors
               ${isCurrent
-                ? 'bg-primary text-white pointer-events-none'
+                ? 'bg-primary text-black pointer-events-none'
                 : 'text-gray-400 hover:text-white hover:bg-white/10'
               }
             `}

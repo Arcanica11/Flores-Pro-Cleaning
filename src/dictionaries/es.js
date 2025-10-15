@@ -55,6 +55,28 @@ export const dictionary = {
             "required": "Este campo es obligatorio",
             "invalid_email": "Por favor, ingrese un correo válido"
         }
-    }
-  }
+    },
+  },
+  "services_section": {
+ "subtitle": "QUÉ LIMPIAMOS",
+ "title": "Nuestros Servicios",
+ "services": [
+   {
+     "title": "Limpieza Residencial",
+     "description": "Renueva la comodidad y limpieza de tu hogar con nuestra limpieza experta. Ofrecemos cuidado detallado en cada habitación, desde quitar el polvo y aspirar hasta la desinfección total de cocinas y baños.",
+     "icon": "flores_sparkle.webp"
+   },
+   {
+     "title": "Post-Construcción",
+     "description": "Disfruta de tu espacio recién construido o renovado. Nuestro equipo se encarga de limpiar serrín, escombros y manchas de pintura, dejando tu nuevo espacio impecable y listo para disfrutar.",
+     "icon": "flores_heart.webp"
+   },
+   {
+     "title": "Limpieza Ecológica",
+     "description": "Nos enorgullece ofrecer soluciones ecológicas, utilizando ingredientes naturales y métodos sostenibles para proteger tu hogar y el planeta.",
+     "icon": "flores_eco.webp"
+   }
+ ],
+ "button": "Ver Todos los Servicios"
+},
 };

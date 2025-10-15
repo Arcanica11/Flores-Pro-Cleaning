@@ -10,9 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'primary': '#D4AF37',     // Dorado principal (más brillante)
+        'primary': '#fbd351',     // Dorado principal (más brillante)
         'primary-hover': '#B8860B', // Dorado oscuro para el hover
-        'secondary': '#F5F5DC',   // Beige
+        'secondary': '#fffef6',   // Beige
         'soft-black': '#1A1A1A',   // Texto principal
       },
       fontFamily: {

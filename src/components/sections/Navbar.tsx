@@ -50,11 +50,11 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
           {/* Logo a la izquierda */}
           <Link href={`/${lang}`} className="z-50 flex-shrink-0">
             <Image
-              src="/FPC_Primary_Logo_WHITE.webp"
+              src="/floresLogoWeb.png"
               alt="Flores Pro-Cleaning Logo"
-              width={160}
+              width={200}
               height={40}
-              className="h-auto w-auto"
+              className="h-auto w-120"
               priority
             />
           </Link>
@@ -79,7 +79,7 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
             <LanguageSwitcher />
             <Link
               href={`/${lang}/agendar-visita`}
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-white shadow hover:bg-primary/90 h-10 px-6"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-black shadow hover:bg-secondary/90 h-10 px-6"
             >
               {dictionary.book}
             </Link>
