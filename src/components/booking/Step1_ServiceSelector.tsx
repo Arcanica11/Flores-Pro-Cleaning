@@ -1,16 +1,21 @@
 "use client";
 
 import { useBookingStore } from "@/lib/store";
-import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "../../../i18n.config";
-
-type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
+import { Locale } from "@/languages.config";
 
 type Step1Props = {
-  dictionary: Dictionary['booking'];
+  lang: Locale;
+  dictionary: {
+    step1_title: string;
+    services: {
+      residential: string;
+      commercial: string;
+      deep: string;
+    };
+  };
 };
 
-export default function Step1_ServiceSelector({ dictionary }: Step1Props) {
+export default function Step1_ServiceSelector({ lang, dictionary }: Step1Props) {
   const { setService } = useBookingStore();
 
   const services = [

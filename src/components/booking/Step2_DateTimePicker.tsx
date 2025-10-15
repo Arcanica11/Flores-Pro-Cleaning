@@ -1,18 +1,19 @@
 "use client";
 
 import { useBookingStore } from "@/lib/store";
-import { getDictionary } from "@/lib/dictionary";
-import { Locale } from "../../../i18n.config";
+import { Locale } from "@/languages.config";
 import { useEffect, useState } from "react";
 import { get_calendar_availability } from "@/lib/google-calendar";
 
-type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
-
 type Step2Props = {
-  dictionary: Dictionary['booking'];
+  lang: Locale;
+  dictionary: {
+    step2_title: string;
+    back_button: string;
+  };
 };
 
-export default function Step2_DateTimePicker({ dictionary }: Step2Props) {
+export default function Step2_DateTimePicker({ lang, dictionary }: Step2Props) {
   const { setSlot, prevStep } = useBookingStore();
   const [date, setDate] = useState(new Date());
   const [busySlots, setBusySlots] = useState<any[]>([]);
@@ -46,7 +47,7 @@ export default function Step2_DateTimePicker({ dictionary }: Step2Props) {
 
   return (
     <div>
-      <button onClick={prevStep} className="mb-4 text-sm text-gray-600">&larr; Back</button>
+      <button onClick={prevStep} className="mb-4 text-sm text-gray-600">&larr; {dictionary.back_button}</button>
       <h2 className="text-3xl font-bold text-center mb-8">{dictionary.step2_title}</h2>
       <div className="flex flex-col items-center">
         <input type="date" onChange={handleDateChange} className="p-2 border rounded-md mb-8" />
