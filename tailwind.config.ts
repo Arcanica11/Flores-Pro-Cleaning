@@ -10,10 +10,10 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: '#2C5F2D',    // Forest Green
-        secondary: '#FBF8F1',  // Soft Beige
-        accent: '#E5D5A4',     // Pale Gold
-        'soft-black': '#1A1A1A',
+        'primary': '#B8860B',    // Dark Goldenrod (for buttons, links, and accents)
+        'secondary': '#F5F5DC',  // Beige (for section backgrounds)
+        'accent': '#D4AF37',     // Pale Gold (for hover effects and subtle highlights)
+        'soft-black': '#1A1A1A',  // For primary text
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
