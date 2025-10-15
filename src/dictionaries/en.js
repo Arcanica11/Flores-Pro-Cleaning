@@ -28,9 +28,10 @@ export const dictionary = {
     "text": "Flores Pro-Cleaning transformed our home. Their attention to detail and professionalism are unmatched. Highly recommended!",
     "author": "Maria S., Happy Customer"
   },
-  "cta": {
+   "cta": {
     "title": "Ready for a Spotless Home?",
-    "button": "Book Your Cleaning"
+    "description": "If you want to know more about our cleaning services, you can call us or schedule a free, no-obligation in-home estimate to have a Flores team member provide you with a free quote.",
+    "button": "Schedule Your Visit"
   },
    "why_us": {
     "subtitle": "WHY US",
@@ -80,5 +81,15 @@ export const dictionary = {
       }
     ],
     "button": "View All Services"
+  },
+   "footer": {
+    "description": "Family-owned business dedicated to providing high-quality professional cleaning services to the residents of Austin, TX.",
+    "navigation_title": "NAVIGATION",
+    "hours_title": "HOURS",
+    "hours_content": "Monday - Friday <br> 8:00am - 3:30pm",
+    "contact_email": "floresprocleaning@gmail.com",
+    "contact_phone": "(512) 367-0154",
+    "copyright": "© 2025 Flores Pro-Cleaning. All rights reserved.",
+    "credits": "Created by Rueda la Rola Media 2025"
   },
 };

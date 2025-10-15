@@ -6,6 +6,8 @@ import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/i18n.config";
+import Footer from "@/components/sections/Footer";
+
 
 const inter = Inter({
   subsets: ["latin"],
@@ -38,6 +40,7 @@ export default async function RootLayout({
       <body className={`${inter.variable} ${lora.variable} font-sans bg-soft-black text-white`}>
               <Navbar lang={params.lang} dictionary={dict.navbar} />
         {children}
+        <Footer lang={params.lang} /> 
       </body>
     </html>
   );

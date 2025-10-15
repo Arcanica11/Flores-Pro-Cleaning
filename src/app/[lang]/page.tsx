@@ -1,3 +1,5 @@
+// RUTA: src/app/[lang]/page.tsx (VERSIÓN FINAL Y COMPLETA)
+
 import { getDictionary } from '@/lib/dictionary';
 import Hero from '@/components/sections/Hero';
 import Testimonial from '@/components/sections/Testimonial';
@@ -16,7 +18,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'es' 
       <ServicesSection lang={lang} dictionary={dict.services_section} />
       <Process lang={lang} dictionary={dict.process} />
       <Testimonial lang={lang} dictionary={dict.testimonial} />
-      <FinalCTA lang={lang} />
+      <FinalCTA lang={lang} dictionary={dict.cta} />
     </main>
   );
 }
