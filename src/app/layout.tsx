@@ -36,8 +36,7 @@ export default async function RootLayout({
     // La etiqueta <html> necesita saber el idioma actual.
     <html lang={params.lang}>
       <body className={`${inter.variable} ${lora.variable} font-sans bg-soft-black text-white`}>
-        {/* Renderizamos el Navbar aquí, pasándole los datos necesarios */}
-        <Navbar lang={params.lang} dictionary={dict.navbar} />
+              <Navbar lang={params.lang} dictionary={dict.navbar} />
         {children}
       </body>
     </html>

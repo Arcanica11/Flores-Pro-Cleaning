@@ -30,6 +30,12 @@ export const dictionary = {
     "title": "Ready for a Spotless Home?",
     "button": "Book Your Cleaning"
   },
+   "why_us": {
+    "subtitle": "WHY US",
+    "title": "We Consider Everything",
+    "description": "At Flores Pro-Cleaning, we believe a truly clean home is a reflection of you. That's why we shape every service around your preferences—from the trusted, eco-friendly products we use to your personal expectations. Our mission is to deliver a high-standard clean that not only sparkles but also respects your values and your peace of mind.",
+    "button": "Explore Our Services"
+  },
   "booking": {
     "step1_title": "Select a Service",
     "services": {

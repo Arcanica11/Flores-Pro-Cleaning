@@ -30,6 +30,12 @@ export const dictionary = {
     "title": "¿Listo para un Hogar Impecable?",
     "button": "Reserve su Limpieza"
   },
+  "why_us": {
+    "subtitle": "POR QUÉ NOSOTROS",
+    "title": "Consideramos Cada Detalle",
+    "description": "En Flores Pro-Cleaning, creemos que un hogar verdaderamente limpio es un reflejo de ti. Por eso, adaptamos cada servicio a tus preferencias, desde los productos ecológicos de confianza que usamos hasta tus expectativas personales. Nuestra misión es ofrecer una limpieza de alto estándar que no solo brilla, sino que también respeta tus valores y tu tranquilidad.",
+    "button": "Explora Nuestros Servicios"
+  },
   "booking": {
     "step1_title": "Seleccione un Servicio",
     "services": {
