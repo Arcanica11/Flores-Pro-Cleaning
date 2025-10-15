@@ -17,16 +17,13 @@ const Hero = ({ title }: HeroProps) => {
     },
   };
 
+  // FIX: Se elimina la propiedad 'transition' de la variante 'visible'.
+  // Las variantes deben definir los estados (el "qué"), no necesariamente la forma en que se transiciona a ellos.
   const letterVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        type: "spring",
-        stiffness: 100,
-        damping: 10,
-      },
     },
   };
 
@@ -44,7 +41,17 @@ const Hero = ({ title }: HeroProps) => {
         animate="visible"
       >
         {title.split("").map((letter, index) => (
-          <motion.span key={index} variants={letterVariants}>
+          <motion.span
+            key={index}
+            variants={letterVariants}
+            // FIX: La propiedad 'transition' se define directamente en el componente motion.
+            // Esto le dice a Framer Motion "cómo" debe animar entre las variantes 'hidden' y 'visible'.
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 10,
+            }}
+          >
             {letter}
           </motion.span>
         ))}
