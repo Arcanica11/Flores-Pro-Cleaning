@@ -8,7 +8,6 @@ import { create_calendar_appointment } from "@/lib/google-calendar";
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
 type Step3Props = {
-  lang: 'es' | 'en';
   dictionary: Dictionary['booking'];
   formDictionary: Dictionary['form'];
 };
@@ -19,7 +18,7 @@ type FormData = {
   phone: string;
 };
 
-export default function Step3_UserInfoForm({ lang, dictionary, formDictionary }: Step3Props) {
+export default function Step3_UserInfoForm({ dictionary, formDictionary }: Step3Props) {
   const { selectedService, selectedSlot, prevStep, reset } = useBookingStore();
   const { register, handleSubmit, formState: { errors } } = useForm<FormData>();
 

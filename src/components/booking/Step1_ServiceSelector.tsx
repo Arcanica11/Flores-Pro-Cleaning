@@ -7,11 +7,10 @@ import { Locale } from "../../../i18n.config";
 type Dictionary = Awaited<ReturnType<typeof getDictionary>>;
 
 type Step1Props = {
-  lang: Locale;
   dictionary: Dictionary['booking'];
 };
 
-export default function Step1_ServiceSelector({ lang, dictionary }: Step1Props) {
+export default function Step1_ServiceSelector({ dictionary }: Step1Props) {
   const { setService } = useBookingStore();
 
   const services = [
