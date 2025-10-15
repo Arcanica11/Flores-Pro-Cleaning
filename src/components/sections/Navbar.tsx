@@ -8,18 +8,18 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import type { Locale } from '@/i18n.config';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
-import { dictionary } from '@/dictionaries/en'; // Se usa solo para inferir el tipo
+import { dictionary } from '@/dictionaries/en'; 
 
-// Definimos un tipo para la porción del diccionario que el Navbar espera recibir.
 type NavbarDictionary = typeof dictionary.navbar;
 
-// Las props del componente ahora incluyen 'lang' y 'dictionary'.
 export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary: NavbarDictionary }) {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [hasScrolled, setHasScrolled] = useState(false);
 
-  // Efecto para detectar el scroll y cambiar el fondo del navbar.
+  // FIX: Detectamos si la página actual es la de inicio.
+  const isHomePage = pathname === `/${lang}`;
+
   useEffect(() => {
     const handleScroll = () => {
       setHasScrolled(window.scrollY > 10);
@@ -28,7 +28,6 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Efecto para bloquear el scroll del body cuando el menú móvil está abierto.
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : 'auto';
   }, [isOpen]);
@@ -38,54 +37,56 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
     { name: dictionary.services, href: `/${lang}/services` },
     { name: dictionary.about, href: `/${lang}/about` },
   ];
+  
+  // FIX: Lógica de clases mejorada.
+  // El fondo será oscuro si (el usuario ha hecho scroll) O (no estamos en la página de inicio).
+  // Será transparente solo si estamos en la página de inicio Y en la parte superior.
+  const headerClasses = `fixed top-0 z-50 w-full transition-colors duration-300 ${
+    hasScrolled || !isHomePage
+      ? 'bg-soft-black/90 backdrop-blur-sm border-b border-white/10'
+      : 'bg-transparent'
+  }`;
 
   return (
     <>
-      <header
-        className={`fixed top-0 z-50 w-full transition-colors duration-300 ${
-          hasScrolled ? 'bg-black/80 backdrop-blur-sm border-b border-white/10' : 'bg-transparent'
-        }`}
-      >
+      <header className={headerClasses}>
         <div className="container mx-auto flex h-20 items-center justify-between px-4">
-          {/* Logo a la izquierda */}
-          <Link href={`/${lang}`} className="z-50 flex-shrink-0">
-            <Image
-              src="/floresLogoWeb.png"
-              alt="Flores Pro-Cleaning Logo"
-              width={200}
-              height={40}
-              className="h-auto w-120"
-              priority
-            />
-          </Link>
+          
+          <div className="flex-1 flex justify-start">
+            <Link href={`/${lang}`} className="z-50 flex-shrink-0">
+              <Image
+                src="/floresLogoWeb.png"
+                alt="Flores Pro-Cleaning Logo"
+                width={140}
+                height={40}
+                className="h-auto w-200"
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* Enlaces de navegación en el centro (solo para desktop) */}
-          <nav className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm">
+          <nav className="hidden lg:flex flex-1 justify-center items-center gap-8 text-sm">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`transition-colors hover:text-white text-gray-300 font-medium uppercase tracking-wider ${
-                  pathname === link.href ? '!text-white' : ''
-                }`}
+                className="transition-colors hover:text-white text-gray-300 font-medium uppercase tracking-wider"
               >
                 {link.name}
               </Link>
             ))}
           </nav>
 
-          {/* Acciones a la derecha (solo para desktop) */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex flex-1 justify-end items-center gap-4">
             <LanguageSwitcher />
             <Link
               href={`/${lang}/agendar-visita`}
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-black shadow hover:bg-secondary/90 h-10 px-6"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-soft-black shadow hover:bg-primary-hover h-10 px-6"
             >
               {dictionary.book}
             </Link>
           </div>
 
-          {/* Botón de Menú para Móvil */}
           <div className="lg:hidden z-50">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white">
               {isOpen ? <X /> : <Menu />}
@@ -94,7 +95,7 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
         </div>
       </header>
 
-      {/* Menú Overlay para Móvil con Animación */}
+      {/* Menú Overlay para Móvil (Sin cambios) */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -122,7 +123,7 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
                     {link.name}
                   </Link>
                 ))}
-                <Link
+                 <Link
                   href={`/${lang}/agendar-visita`}
                   onClick={() => setIsOpen(false)}
                   className="mt-8 inline-flex items-center justify-center rounded-md text-xl font-medium transition-colors bg-primary text-white shadow hover:bg-primary/90 h-12 px-8"

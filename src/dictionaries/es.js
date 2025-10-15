@@ -94,4 +94,52 @@ export const dictionary = {
     "copyright": "© 2025 Flores Pro-Cleaning. Todos los derechos reservados.",
     "credits": "Creado por Rueda la Rola Media 2025"
   },
+   "services_page": {
+    "title": "Nuestros Servicios",
+    "description": "Ofrecemos una limpieza de alto estándar moldeada por tus preferencias, desde productos de confianza hasta expectativas personales.",
+    "services": [
+      {
+        "slug": "residential-cleaning",
+        "title": "Limpieza Residencial",
+        "description": "Renueva la comodidad y limpieza de tu hogar con una limpieza experta. Damos un cuidado detallado a cada habitación, desde quitar el polvo y limpiar superficies hasta desinfectar a fondo la cocina y el baño.",
+        "includes_title": "Qué incluye este servicio:",
+        "tasks": [
+          "Desempolvado de todas las superficies, lámparas y ventiladores de techo",
+          "Limpieza de ventanas, persianas y marcos",
+          "Limpieza detallada de zócalos, puertas y manijas",
+          "Aspirado y trapeado de todos los pisos y alfombras",
+          "Lavado y desinfección de servicio completo de baños",
+          "Lavado y desinfección de servicio completo de cocinas"
+        ]
+      },
+      {
+        "slug": "post-construction",
+        "title": "Post-Construcción",
+        "description": "Disfruta de tu espacio recién construido o renovado dándole una limpieza transformadora. Nuestro equipo se encarga de limpiar materiales como serrín, escombros y salpicaduras de pintura para que puedas disfrutar de la belleza de tu nuevo espacio.",
+        "includes_title": "Qué incluye este servicio:",
+        "tasks": [
+          "Eliminación de todo el polvo, escombros y materiales visibles",
+          "Remoción de residuos como pintura seca, barro y etiquetas adhesivas",
+          "Limpieza profunda de todas las superficies exteriores e interiores (luces, ventanas, gabinetes, etc.)",
+          "Aspirado de todos los rieles y pestillos de las ventanas",
+          "Brillado y pulido de todas las luces y accesorios",
+          "Limpieza final de todas las puertas de entrada y umbrales"
+        ]
+      },
+      {
+        "slug": "move-in-out",
+        "title": "Múdate Adentro / Afuera",
+        "description": "Ya sea que te mudes a un nuevo lugar o dejes el anterior, el mejor momento para limpiar es cuando está vacío. Este servicio ofrece una limpieza a fondo de todas las superficies para darle a la casa un nuevo comienzo.",
+        "includes_title": "Qué incluye este servicio:",
+        "tasks": [
+          "Limpieza profunda de todos los hornos, por dentro y por fuera",
+          "Lavado, limpieza y desinfección de todas las superficies del baño",
+          "Limpieza profunda de todos los pisos y zócalos para eliminar manchas",
+          "Limpieza profunda del interior y exterior de todos los gabinetes y cajones",
+          "Limpieza de todas las ventanas, persianas y marcos de ventanas",
+          "Desempolvado a fondo de rejillas de ventilación, luces y techos"
+        ]
+      }
+    ]
+  },
 };

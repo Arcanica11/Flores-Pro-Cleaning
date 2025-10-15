@@ -92,4 +92,53 @@ export const dictionary = {
     "copyright": "© 2025 Flores Pro-Cleaning. All rights reserved.",
     "credits": "Created by Rueda la Rola Media 2025"
   },
+  "services_page": {
+    "title": "Our Services",
+    "description": "We provide high-standard cleaning with care shaped by your preferences, from trusted products to personal expectations.",
+    "services": [
+      {
+        "slug": "residential-cleaning",
+        "title": "Residential Cleaning",
+        "description": "Refresh the comfort and cleanliness of your home with expert residential cleaning. We provide detailed care throughout every room, from dusting and surface cleaning to thorough kitchen and bathroom sanitation.",
+        "includes_title": "What is included in this service:",
+        "tasks": [
+          "Dusting of all surfaces, light fixtures, and ceiling fans",
+          "Window, blind, and frame cleaning",
+          "Detailed cleaning of baseboards, doors, and doorknobs",
+          "Vacuuming and mopping of all floors and carpets",
+          "Full-service bathroom scrub and disinfection",
+          "Full-service kitchen scrub and disinfection"
+        ]
+      },
+      {
+        "slug": "post-construction",
+        "title": "Post-Construction",
+        "description": "Enjoy your newly built or renovated space by giving it a transformative clean. Our team takes care of the clean-up from materials like sawdust, debris, and paint splatters so you can enjoy the beauty of your new space.",
+        "includes_title": "What is included in this service:",
+        "tasks": [
+          "Elimination of all visible dust, debris, and materials",
+          "Removal of residues like dry paint, mud, and sticker labels",
+          "Deep cleaning of all exterior and interior surfaces (lights, windows, cabinets, etc.)",
+          "Vacuuming of all window tracks and latches",
+          "Polishing of all lights and fixtures",
+          "Final wipe-down of all entry doors and thresholds"
+        ]
+      },
+      {
+        "slug": "move-in-out",
+        "title": "Move In / Move Out",
+        "description": "Whether you're moving into a new place or moving out of your old one, the best time to clean is when it's empty. This service provides an in-depth cleaning of all surfaces to give the home a fresh start.",
+        "includes_title": "What is included in this service:",
+        "tasks": [
+          "Deep clean of all ovens, inside and out",
+          "Scrub, wipe, and disinfect all bathroom surfaces",
+          "Deep clean all floors and baseboards to remove stains",
+          "Deep clean the inside and outside of all cabinets and drawers",
+          "Wipe all windows, blinds, and window frames",
+          "Thorough dusting of vents, lights, and ceilings"
+        ]
+      }
+    ]
+  },
+
 };
