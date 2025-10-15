@@ -15,7 +15,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'es' 
       <WhyUs lang={lang} dictionary={dict.why_us} />
       <ServicesSection lang={lang} dictionary={dict.services_section} />
       <Process lang={lang} dictionary={dict.process} />
-      <Testimonial lang={lang} />
+      <Testimonial lang={lang} dictionary={dict.testimonial} />
       <FinalCTA lang={lang} />
     </main>
   );

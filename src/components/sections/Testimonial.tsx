@@ -1,27 +1,32 @@
-import { getDictionary } from '@/lib/dictionary';
+// RUTA: src/components/sections/Testimonial.tsx (REEMPLAZO COMPLETO)
+'use client';
 
-type TestimonialProps = {
-  lang: 'es' | 'en';
-};
+import { motion } from 'framer-motion';
+import { Quote } from 'lucide-react'; // Usaremos un ícono para la cita
+import { dictionary } from '@/dictionaries/en';
 
-export default async function Testimonial({ lang }: TestimonialProps) {
-  const dict = await getDictionary(lang);
+type TestimonialDictionary = typeof dictionary.testimonial;
 
+export default function Testimonial({ lang, dictionary }: { lang: 'es' | 'en'; dictionary: TestimonialDictionary }) {
   return (
-    <section className="bg-secondary py-24">
-      <div className="container mx-auto px-4">
-        <div className="relative overflow-hidden rounded-lg bg-white p-12 shadow-lg transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-card-hover">
-          <div className="absolute inset-0 -z-10 animate-aurora bg-[radial-gradient(circle,_#D4AF37,_#F5F5DC)] opacity-30 blur-[80px]"></div>
-          <blockquote className="text-center">
-            <p className="font-serif text-3xl font-bold text-soft-black">
-              &quot;{dict.testimonial.text}&quot;
-            </p>
-            <footer className="mt-6 font-sans text-lg text-gray-600">
-              - {dict.testimonial.author}
-            </footer>
-          </blockquote>
-        </div>
-      </div>
+    <section className="py-24 bg-soft-black">
+      <motion.div
+        className="container mx-auto px-4 text-center"
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.4 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+      >
+        <Quote className="mx-auto h-12 w-12 text-primary mb-6" />
+        <blockquote className="max-w-3xl mx-auto">
+          <p className="font-serif text-3xl md:text-4xl font-medium text-white leading-tight">
+            &quot;{dictionary.text}&quot;
+          </p>
+          <footer className="mt-8 font-sans text-lg text-gray-400">
+            - {dictionary.author}
+          </footer>
+        </blockquote>
+      </motion.div>
     </section>
   );
 }
