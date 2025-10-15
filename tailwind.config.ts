@@ -10,17 +10,17 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        'primary': '#B8860B',    // Dark Goldenrod (for buttons, links, and accents)
-        'secondary': '#F5F5DC',  // Beige (for section backgrounds)
-        'accent': '#D4AF37',     // Pale Gold (for hover effects and subtle highlights)
-        'soft-black': '#1A1A1A',  // For primary text
+        'primary': '#D4AF37',     // Dorado principal (más brillante)
+        'primary-hover': '#B8860B', // Dorado oscuro para el hover
+        'secondary': '#F5F5DC',   // Beige
+        'soft-black': '#1A1A1A',   // Texto principal
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
         serif: ['var(--font-lora)', ...fontFamily.serif],
       },
       boxShadow: {
-        'primary-hover': '0 4px 15px rgba(44, 95, 45, 0.2)',
+        'primary-glow': '0 0 20px rgba(212, 175, 55, 0.5)',
         'card-hover': '0 8px 25px rgba(0, 0, 0, 0.08)',
       },
       keyframes: {

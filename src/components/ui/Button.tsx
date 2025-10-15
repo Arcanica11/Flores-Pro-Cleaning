@@ -1,35 +1,39 @@
-"use client";
+// RUTA: src/components/ui/Button.tsx (REEMPLAZO COMPLETO)
+'use client';
 
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 type ButtonProps = {
   href: string;
   children: React.ReactNode;
+  className?: string; // Permitir clases adicionales para flexibilidad
 };
 
-const Button = ({ href, children }: ButtonProps) => {
+const Button = ({ href, children, className = '' }: ButtonProps) => {
   return (
-    <Link href={href}>
+    <Link href={href} passHref>
       <motion.button
-        className="relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-primary rounded-lg overflow-hidden group transition-shadow duration-300 ease-in-out hover:shadow-primary-hover"
-        whileHover="hover"
+        className={`relative inline-flex items-center justify-center px-8 py-3 text-md font-bold text-soft-black bg-primary rounded-lg overflow-hidden group transition-all duration-300 ease-in-out ${className}`}
+        whileHover={{
+          scale: 1.05,
+          boxShadow: "0 0 20px rgba(212, 175, 55, 0.5)", // Usamos el nuevo 'glow'
+        }}
+        whileTap={{ scale: 0.98 }}
+        transition={{ type: 'spring', stiffness: 300, damping: 15 }}
       >
-        <span>{children}</span>
-        <motion.span
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent"
-          initial={{ x: "-100%" }}
-          variants={{ hover: { x: "100%" } }}
-          transition={{ duration: 1, ease: "linear" }}
-        />
+        {/* Capa para el efecto de brillo (shimmer) */}
         <motion.div
-          className="ml-2"
-          variants={{ hover: { x: 4 } }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
-          <ArrowRight className="h-5 w-5" />
-        </motion.div>
+          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
+          initial={{ x: '-150%' }}
+          whileHover={{ x: '150%' }}
+          transition={{ duration: 0.7, ease: 'easeInOut' }}
+        />
+        
+        {/* El contenido del botón se coloca en una capa superior para que no se vea afectado por el brillo */}
+        <span className="relative z-10">
+          {children}
+        </span>
       </motion.button>
     </Link>
   );
