@@ -43,7 +43,11 @@
         "name": "Name",
         "email": "Email",
         "phone": "Phone",
-        "submit": "Book Appointment"
+        "submit": "Book Appointment",
+        "errors": {
+            "required": "This field is required",
+            "invalid_email": "Please enter a valid email"
+        }
     }
   }
 }

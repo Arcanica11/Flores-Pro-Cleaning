@@ -29,7 +29,7 @@
     "title": "¿Listo para un Hogar Impecable?",
     "button": "Reserve su Limpieza"
   },
-  "booking": {
+   "booking": {
     "step1_title": "Seleccione un Servicio",
     "services": {
       "residential": "Limpieza Residencial",
@@ -43,7 +43,11 @@
         "name": "Nombre",
         "email": "Correo Electrónico",
         "phone": "Teléfono",
-        "submit": "Agendar Cita"
+        "submit": "Agendar Cita",
+        "errors": {
+            "required": "Este campo es obligatorio",
+            "invalid_email": "Por favor, ingrese un correo válido"
+        }
     }
   }
 }
