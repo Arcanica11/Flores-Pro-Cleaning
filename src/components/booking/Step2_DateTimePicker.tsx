@@ -1,7 +1,7 @@
 "use client";
 
 import { useBookingStore } from "@/lib/store";
-import { Locale } from "@/languages.config";
+import { Locale } from "../../i18n.config";
 import { useEffect, useState } from "react";
 import { get_calendar_availability } from "@/lib/google-calendar";
 

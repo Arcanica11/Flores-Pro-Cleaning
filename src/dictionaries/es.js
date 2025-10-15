@@ -1,4 +1,4 @@
-{
+export const dictionary = {
   "navbar": {
     "services": "Servicios",
     "about": "Sobre Nosotros",
@@ -29,7 +29,7 @@
     "title": "¿Listo para un Hogar Impecable?",
     "button": "Reserve su Limpieza"
   },
-   "booking": {
+  "booking": {
     "step1_title": "Seleccione un Servicio",
     "services": {
       "residential": "Limpieza Residencial",
@@ -50,4 +50,4 @@
         }
     }
   }
-}
+};

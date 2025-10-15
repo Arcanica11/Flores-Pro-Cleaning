@@ -2,7 +2,7 @@
 
 import { useBookingStore } from "@/lib/store";
 import { useForm } from "react-hook-form";
-import { Locale } from "@/languages.config";
+import { Locale } from "../../i18n.config";
 
 type Step3Props = {
   lang: Locale;

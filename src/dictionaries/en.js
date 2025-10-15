@@ -1,4 +1,4 @@
-{
+export const dictionary = {
   "navbar": {
     "services": "Services",
     "about": "About Us",
@@ -50,4 +50,4 @@
         }
     }
   }
-}
+};

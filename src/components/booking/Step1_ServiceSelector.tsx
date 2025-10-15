@@ -1,7 +1,7 @@
 "use client";
 
 import { useBookingStore } from "@/lib/store";
-import { Locale } from "@/languages.config";
+import { Locale } from "../../i18n.config"; 
 
 type Step1Props = {
   lang: Locale;
