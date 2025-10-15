@@ -38,6 +38,7 @@
     },
     "step2_title": "Seleccione Fecha y Hora",
     "step3_title": "Ingrese sus Datos",
+    "back_button": "Atrás",
     "form": {
         "name": "Nombre",
         "email": "Correo Electrónico",

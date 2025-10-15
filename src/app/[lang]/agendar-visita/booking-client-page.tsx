@@ -33,7 +33,7 @@ export default function BookingClientPage({ lang, dictionary }: { lang: Locale, 
         >
           {currentStep === 1 && <Step1_ServiceSelector lang={lang} dictionary={dictionary.booking} />}
           {currentStep === 2 && <Step2_DateTimePicker lang={lang} dictionary={dictionary.booking} />}
-          {currentStep === 3 && <Step3_UserInfoForm lang={lang} dictionary={dictionary.booking} formDictionary={dictionary.form} />}
+          {currentStep === 3 && <Step3_UserInfoForm lang={lang} dictionary={dictionary.booking} formDictionary={dictionary.booking.form} />}
         </motion.div>
       </AnimatePresence>
     </div>
