@@ -1,5 +1,6 @@
 export const dictionary = {
   "navbar": {
+    "home": "Home", // <-- AÑADIR ESTA LÍNEA
     "services": "Services",
     "about": "About Us",
     "book": "Book Visit"
