@@ -13,27 +13,27 @@ export const dictionary = {
     "description": "Our professional team provides top-quality cleaning services for your home, ensuring a spotless and healthy environment.",
     "explore": "Explore Service"
   },
-"process": {
-    "subtitle": "HOW IT WORKS",
-    "title": "Free In-Home Estimate",
-    "step1_title": "1. Schedule a Visit",
-    "step1_desc": "When scheduling a free in-home estimate, you will fill out a form that helps us better understand the kind of cleaning services you're seeking.",
-    "step2_title": "2. In-Home Visit",
-    "step2_desc": "A Flores team member will visit your home on the agreed-upon day to provide you with a detailed, no-obligation free quote.",
-    "step3_title": "3. The Perfect Clean",
-    "step3_desc": "After you approve the estimate, our professional team will visit your home to confidently transform it into a fresh and spotless living space.",
-    "button": "Schedule Your Estimate"
+  "process": {
+      "subtitle": "HOW IT WORKS",
+      "title": "Free In-Home Estimate",
+      "step1_title": "Schedule a Visit",
+      "step1_desc": "When scheduling a free in-home estimate, you will fill out a form that helps us better understand the kind of cleaning services you're seeking. Once you have scheduled a visit, a Flores team member will contact you to confirm your appointment and ask any further questions.",
+      "step2_title": "Visit",
+      "step2_desc": "Once your visit has been confirmed, a Flores team member will visit your home on the day agreed upon to give you a free in-home estimate.",
+      "step3_title": "Clean Up",
+      "step3_desc": "After agreeing on a cleaning package, the Flores housekeeping team will visit your home to confidently transform it into a fresh and spotless living space.",
+      "button": "Schedule Your Estimate"
   },
   "testimonial": {
     "text": "Flores Pro-Cleaning transformed our home. Their attention to detail and professionalism are unmatched. Highly recommended!",
     "author": "Maria S., Happy Customer"
   },
-   "cta": {
+  "cta": {
     "title": "Ready for a Spotless Home?",
     "description": "If you want to know more about our cleaning services, you can call us or schedule a free, no-obligation in-home estimate to have a Flores team member provide you with a free quote.",
     "button": "Schedule Your Visit"
   },
-   "why_us": {
+  "why_us": {
     "subtitle": "WHY US",
     "title": "We Consider Everything",
     "description": "At Flores Pro-Cleaning, we believe a truly clean home is a reflection of you. That's why we shape every service around your preferences—from the trusted, eco-friendly products we use to your personal expectations. Our mission is to deliver a high-standard clean that not only sparkles but also respects your values and your peace of mind.",
@@ -82,7 +82,7 @@ export const dictionary = {
     ],
     "button": "View All Services"
   },
-   "footer": {
+  "footer": {
     "description": "Family-owned business dedicated to providing high-quality professional cleaning services to the residents of Austin, TX.",
     "navigation_title": "NAVIGATION",
     "hours_title": "HOURS",
@@ -140,20 +140,30 @@ export const dictionary = {
       }
     ]
   },
-"about_page": {
-    "title": "About Us",
-    "paragraph1": "Flores Pro Cleaning is a family-owned business dedicated to providing high-quality professional cleaning services to the residents of Austin, TX.",
-    "paragraph2": "With years of experience, we have developed efficient cleaning practices, including eco-friendly methods that make it easier to take care of Earth and have a sparkling home.",
+  "about_page": {
+    "title": "How It All Started",
+    "paragraph1": "In 2007, Leticia Flores founded Flores Pro-Cleaning, drawing on her early experiences working as a housekeeper alongside her mother. With years of experience in a variety of cleaning jobs, Leticia developed a highly effective cleaning system that consistently leaves all of her clients satisfied.",
+    "paragraph2": "A key focus at Flores-Pro Cleaning is properly training all our team members with this system. This not only equips our employees with highly efficient cleaning techniques, but also encourages them to be observant, deliberate, and detailed. Flores recognizes that a home is a special place in which everyone lives differently.",
+    "paragraph3": "While Flores Pro-Cleaning has expanded and now has various teams specialized in different types of jobs, Leticia is dedicated to ensuring all team members are properly trained and uphold all of Flores' core principles. When hiring Flores Pro-Cleaning, you're hiring a team that works hard to meet your expectations and values taking care of your home.",
     "image_alt": "Founder of Flores Pro-Cleaning",
+    "mission_subtitle": "Our Mission",
+    "mission_text": "Our number one priority in Flores is to provide a cleaning experience that meets all of our customer's expectations. We achieve this through a unique cleaning system operated by family and friends who truly enjoy taking care of people's homes.",
     "values": {
-      "title": "Our Values",
-      "value1_title": "Commitment",
-      "value1_desc": "We are dedicated to providing a reliable and consistent service that exceeds your expectations every time.",
-      "value2_title": "Eco-Friendly",
-      "value2_desc": "We use sustainable products and methods to protect your home, your family, and the planet.",
-      "value3_title": "Satisfaction",
-      "value3_desc": "Your happiness is our priority. We tailor every cleaning to your needs to ensure a perfect result."
-    }
+      "title": "Our Core Values",
+      "subtitle": "The principles that guide our commitment to quality and service in every home we care for.",
+      "value1_title": "Family Owned",
+      "value1_desc": "Flores Pro-Cleaning is a family-operated business staffed by family and close friends.",
+      "value2_title": "Personalized Cleaning",
+      "value2_desc": "We clean all homes with a customized cleaning program based on the needs and schedule of each customer.",
+      "value3_title": "Eco-Friendly",
+      "value3_desc": "Flores Pro-Cleaning strives to always provide its customers with environmentally friendly cleaning solutions.",
+      "value4_title": "Detail Oriented",
+      "value4_desc": "With Flores, every corner of your home will be left with a professional and unique touch."
+    },
+    "gallery_title": "The Team in Action",
+    "gallery_subtitle": "Committed to excellence in every detail, our team transforms spaces with dedication and professionalism.",
+    "cta_title": "Ready for a Spotless Home?",
+    "cta_subtitle": "Let us show you the difference a dedicated and detail-oriented team can make in your home.",
+    "cta_button": "Request Your Free Estimate"
   },
-
 };

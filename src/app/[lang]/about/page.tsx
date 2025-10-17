@@ -1,8 +1,9 @@
-// RUTA: src/app/[lang]/about/page.tsx (REEMPLAZO COMPLETO)
+// RUTA: src/app/[lang]/about/page.tsx (REDISEÑO COMPLETO)
 import Image from 'next/image';
 import { getDictionary } from '@/lib/dictionary';
 import type { Locale } from '@/i18n.config';
-import { Heart, Leaf, Smile } from 'lucide-react'; // NOTE: Iconos para la sección de valores
+import { HeartHandshake, UserCheck, Leaf, Sparkles } from 'lucide-react';
+import Button from '@/components/ui/Button';
 
 export default async function AboutPage({ params: { lang } }: { params: { lang: Locale } }) {
   const dict = await getDictionary(lang);
@@ -10,71 +11,137 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
 
   const values = [
     {
-      icon: <Heart className="h-10 w-10 text-primary" />,
+      icon: <HeartHandshake className="h-10 w-10 text-primary" />,
       title: t.values.value1_title,
       description: t.values.value1_desc,
     },
     {
-      icon: <Leaf className="h-10 w-10 text-primary" />,
+      icon: <UserCheck className="h-10 w-10 text-primary" />,
       title: t.values.value2_title,
       description: t.values.value2_desc,
     },
     {
-      icon: <Smile className="h-10 w-10 text-primary" />,
+      icon: <Leaf className="h-10 w-10 text-primary" />,
       title: t.values.value3_title,
       description: t.values.value3_desc,
+    },
+    {
+      icon: <Sparkles className="h-10 w-10 text-primary" />,
+      title: t.values.value4_title,
+      description: t.values.value4_desc,
     },
   ];
 
   return (
-    <main className="bg-secondary text-soft-black">
-      {/* Hero Section */}
-      <section className="container mx-auto py-20 px-4">
-        <div className="grid md:grid-cols-2 gap-16 items-center">
-          <div className="text-left">
-            <h1 className="text-5xl lg:text-6xl font-bold font-serif text-soft-black">
-              {t.title}
-            </h1>
-            <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-              {t.paragraph1}
+    <main className="bg-white text-soft-black">
+
+      {/* --- HERO / MISIÓN --- */}
+      <section className="relative py-32 md:py-48 bg-secondary">
+        <div 
+          className="absolute inset-0 bg-cover bg-center opacity-10"
+          style={{ backgroundImage: "url('/unsplash-image-owtKY1AVwg8.webp')" }}
+        />
+        <div className="container relative mx-auto px-4 text-center max-w-4xl">
+           <p className="font-semibold text-primary uppercase tracking-wider mb-4">
+              {t.mission_subtitle}
             </p>
-            <p className="mt-4 text-lg text-gray-700 leading-relaxed">
-              {t.paragraph2}
-            </p>
-          </div>
-          <div className="relative h-[500px] w-full rounded-lg overflow-hidden shadow-lg">
-            <Image
-              src="/lety.webp"
-              alt={t.image_alt}
-              fill
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
+          <h1 className="font-serif text-4xl md:text-5xl text-soft-black leading-tight">
+            &quot;{t.mission_text}&quot;
+          </h1>
         </div>
       </section>
 
-      {/* Our Values Section */}
-      <section className="py-24 bg-white">
+      {/* --- HISTORIA DE LA FUNDADORA --- */}
+      <section className="py-24 md:py-32">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="relative h-[500px] md:h-[600px] w-full">
+              <div className="absolute -left-4 -top-4 w-full h-full bg-secondary rounded-lg z-0" />
+              <Image
+                src="/lety.webp"
+                alt={t.image_alt}
+                fill
+                className="object-cover object-center rounded-lg shadow-2xl z-10 relative"
+                sizes="(max-width: 1024px) 100vw, 50vw"
+              />
+            </div>
+            <div className="text-left lg:-ml-16 bg-white p-8 md:p-12 rounded-lg shadow-xl relative z-20">
+              <h2 className="text-4xl lg:text-5xl font-bold font-serif text-soft-black mb-6">
+                {t.title}
+              </h2>
+              <div className="text-lg text-gray-700 leading-relaxed space-y-6">
+                <p>{t.paragraph1}</p>
+                <p>{t.paragraph2}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      {/* --- VALORES FUNDAMENTALES --- */}
+      <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold font-serif text-soft-black mb-16">
-            {t.values.title}
-          </h2>
-          <div className="grid md:grid-cols-3 gap-12">
+          <h2 className="text-4xl font-bold font-serif text-soft-black mb-4">{t.values.title}</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-16">
+            {t.values.subtitle}
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 border border-gray-200">
             {values.map((value) => (
-              <div key={value.title} className="flex flex-col items-center">
-                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-secondary mb-6">
-                  {value.icon}
-                </div>
-                <h3 className="text-2xl font-bold font-serif text-soft-black mb-3">
+              <div key={value.title} className="bg-white p-8 flex flex-col items-center">
+                <div className="mb-5">{value.icon}</div>
+                <h3 className="text-lg font-bold font-serif text-primary uppercase tracking-wider mb-2">
                   {value.title}
                 </h3>
-                <p className="text-gray-600 max-w-xs">{value.description}</p>
+                <p className="text-gray-600 text-sm leading-relaxed">
+                  {value.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+       {/* --- GALERÍA / TEAM IN ACTION --- */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold font-serif text-soft-black">El Equipo en Acción</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Comprometidos con la excelencia en cada detalle, nuestro equipo transforma espacios con dedicación y profesionalismo.</p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div className="grid gap-4">
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images23.webp" alt="Cleaning oven" width={400} height={500}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images14.webp" alt="Cleaning window" width={400} height={600}/>
+              </div>
+              <div className="grid gap-4">
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images27.webp" alt="High dusting" width={400} height={600}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images41.webp" alt="Spraying window" width={400} height={500}/>
+              </div>
+              <div className="grid gap-4">
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images24.webp" alt="Wiping oven door" width={400} height={500}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/unsplash-image-WnuDJlnuOhU.webp" alt="Dusting furniture" width={400} height={600}/>
+              </div>
+              <div className="grid gap-4">
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/unsplash-image-SqOMDOQb3ws.webp" alt="Cleaning kitchen counter" width={400} height={600}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images32.webp" alt="Dusting mirror" width={400} height={500}/>
+              </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- CTA FINAL --- */}
+      <section className="bg-soft-black text-white text-center py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="font-serif text-4xl font-bold">¿Listo para un Hogar Impecable?</h2>
+          <p className="mt-4 max-w-2xl mx-auto">Permítenos mostrarte la diferencia que un equipo dedicado y detallista puede hacer en tu hogar.</p>
+          <div className="mt-8">
+            <Button href={`/${lang}/agendar-visita`} className="!bg-white !text-primary hover:!bg-gray-200">
+              Solicita tu Estimación Gratuita
+            </Button>
+          </div>
+        </div>
+      </section>
+
     </main>
   );
 }
