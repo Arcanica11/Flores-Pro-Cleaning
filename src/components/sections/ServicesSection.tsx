@@ -1,11 +1,10 @@
-// RUTA: src/components/sections/ServicesSection.tsx (NUEVO ARCHIVO)
+// RUTA: src/components/sections/ServicesSection.tsx (REEMPLAZO COMPLETO)
 'use client';
 
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import Button from '../ui/Button';
 import { dictionary } from '@/dictionaries/en'; // Para inferir el tipo
-import { Variants } from 'framer-motion';
+import { Sparkles, Construction, Leaf } from 'lucide-react'; // NOTE: Usamos iconos de Lucide para consistencia
 
 type ServicesDictionary = typeof dictionary.services_section;
 
@@ -21,8 +20,16 @@ const cardVariants: Variants = {
   },
 };
 
+// NOTE: Mapeo de iconos a los títulos de los servicios para flexibilidad
+const serviceIcons: { [key: string]: React.ReactNode } = {
+  "Residential Cleaning": <Sparkles className="h-10 w-10 text-primary" />,
+  "Post-Construction": <Construction className="h-10 w-10 text-primary" />,
+  "Eco-Friendly Cleaning": <Leaf className="h-10 w-10 text-primary" />,
+};
+
 export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en'; dictionary: ServicesDictionary }) {
   return (
+    // FIX: Fondo cambiado a marrón primario y texto a blanco para alto contraste
     <motion.section
       className="py-24 bg-soft-black"
       initial={{ opacity: 0 }}
@@ -31,7 +38,7 @@ export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en
       transition={{ duration: 0.5 }}
     >
       <div className="container mx-auto px-4 text-center">
-        <p className="font-semibold text-primary uppercase tracking-wider mb-2">
+        <p className="font-semibold text-accent uppercase tracking-wider mb-2">
           {dictionary.subtitle}
         </p>
         <h2 className="font-serif text-5xl font-bold text-white mb-16">
@@ -42,24 +49,21 @@ export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en
           {dictionary.services.map((service, index) => (
             <motion.div
               key={service.title}
-              className="bg-gray-900/50 p-8 rounded-lg border border-white/10 text-center flex flex-col items-center transition-all duration-300 hover:border-primary hover:-translate-y-2"
+              // FIX: Tarjetas con fondo claro (secondary) y texto oscuro para contraste
+              className="bg-secondary p-8 rounded-lg text-center flex flex-col items-center transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2"
               variants={cardVariants}
-              initial="hidden" // No necesitamos 'custom' aquí si el delay se maneja en el whileInView
+              initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               custom={index}
             >
-              <Image
-                src={`/${service.icon}`}
-                alt={`${service.title} icon`}
-                width={64}
-                height={64}
-                className="mb-6"
-              />
-              <h3 className="text-2xl font-bold font-serif text-white mb-4">
+              <div className="mb-6">
+                {serviceIcons[service.title] || <Sparkles className="h-10 w-10 text-primary" />}
+              </div>
+              <h3 className="text-2xl font-bold font-serif text-soft-black mb-4">
                 {service.title}
               </h3>
-              <p className="text-gray-400 flex-grow">
+              <p className="text-gray-600 flex-grow">
                 {service.description}
               </p>
             </motion.div>

@@ -27,7 +27,7 @@ export default async function Footer({ lang }: { lang: Locale }) {
           <div className="space-y-4 lg:col-span-4">
             <Link href={`/${lang}`}>
               <Image 
-                src="/FPC_Primary_Logo_WHITE.webp" 
+                src="/floresLogoWeb.png" 
                 alt="Flores Pro-Cleaning Logo" 
                 width={180} 
                 height={45} 

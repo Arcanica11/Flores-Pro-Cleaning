@@ -1,3 +1,4 @@
+// RUTA: tailwind.config.ts (REEMPLAZO COMPLETO)
 import type { Config } from "tailwindcss";
 const { fontFamily } = require('tailwindcss/defaultTheme');
 
@@ -9,32 +10,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      // FIX: Paleta de colores actualizada para coincidir con el diseño de Squarespace (marrones y neutros)
       colors: {
-        'primary': '#fbd351',     // Dorado principal (más brillante)
-        'primary-hover': '#B8860B', // Dorado oscuro para el hover
-        'secondary': '#fffef6',   // Beige
-        'soft-black': '#1A1A1A',   // Texto principal
+        'primary': '#a8824a',        // Marrón oscuro de los botones
+        'primary-hover': '#7a6255',    // Un tono más claro para el hover
+        'secondary': '#F9F5F0',      // Beige/Blanco hueso para fondos
+        'accent': '#E5D5A4',         // Dorado pálido (mantenido por si es útil)
+        'soft-black': '#1A1A1A',      // Texto principal
       },
       fontFamily: {
         sans: ['var(--font-inter)', ...fontFamily.sans],
         serif: ['var(--font-lora)', ...fontFamily.serif],
       },
       boxShadow: {
-        'primary-glow': '0 0 20px rgba(212, 175, 55, 0.5)',
         'card-hover': '0 8px 25px rgba(0, 0, 0, 0.08)',
       },
       keyframes: {
-        aurora: {
-          'from': { transform: 'translate(0px, 0px) rotate(0deg)' },
-          'to': { transform: 'translate(100px, 100px) rotate(360deg)' },
-        },
         shimmer: {
           '0%': { transform: 'translateX(-100%)' },
           '100%': { transform: 'translateX(100%)' },
         }
       },
       animation: {
-        aurora: 'aurora 20s linear infinite alternate',
         shimmer: 'shimmer 1.5s infinite',
       },
     },

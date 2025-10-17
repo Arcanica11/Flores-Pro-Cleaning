@@ -81,7 +81,7 @@ export default function Navbar({ lang, dictionary }: { lang: Locale; dictionary:
             <LanguageSwitcher />
             <Link
               href={`/${lang}/agendar-visita`}
-              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-soft-black shadow hover:bg-primary-hover h-10 px-6"
+              className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-soft-white shadow hover:bg-primary-hover h-10 px-6"
             >
               {dictionary.book}
             </Link>

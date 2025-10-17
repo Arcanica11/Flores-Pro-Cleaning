@@ -1,10 +1,12 @@
+/* RUTA: src/app/globals.css (REEMPLAZO COMPLETO) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
   --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
+  /* FIX: Colores de fondo ajustados a la nueva paleta beige */
+  --background-start-rgb: 249, 245, 240; /* secondary color */
   --background-end-rgb: 255, 255, 255;
 }
 
@@ -17,6 +19,7 @@
 }
 
 body {
+  /* FIX: Color de texto principal y fondo ajustados */
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,

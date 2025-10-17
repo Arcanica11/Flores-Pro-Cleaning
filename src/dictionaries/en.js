@@ -140,5 +140,20 @@ export const dictionary = {
       }
     ]
   },
+"about_page": {
+    "title": "About Us",
+    "paragraph1": "Flores Pro Cleaning is a family-owned business dedicated to providing high-quality professional cleaning services to the residents of Austin, TX.",
+    "paragraph2": "With years of experience, we have developed efficient cleaning practices, including eco-friendly methods that make it easier to take care of Earth and have a sparkling home.",
+    "image_alt": "Founder of Flores Pro-Cleaning",
+    "values": {
+      "title": "Our Values",
+      "value1_title": "Commitment",
+      "value1_desc": "We are dedicated to providing a reliable and consistent service that exceeds your expectations every time.",
+      "value2_title": "Eco-Friendly",
+      "value2_desc": "We use sustainable products and methods to protect your home, your family, and the planet.",
+      "value3_title": "Satisfaction",
+      "value3_desc": "Your happiness is our priority. We tailor every cleaning to your needs to ensure a perfect result."
+    }
+  },
 
 };
