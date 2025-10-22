@@ -3,10 +3,12 @@
 
 import { motion, Variants } from 'framer-motion';
 import Button from '../ui/Button';
-import { dictionary } from '@/dictionaries/en'; // Para inferir el tipo
-import { Sparkles, Construction, Leaf } from 'lucide-react'; // NOTE: Usamos iconos de Lucide para consistencia
+// FIX: Importar el tipo directamente desde el archivo JS para precisión
+import { dictionary as enDictType } from '@/dictionaries/en';
+import { Sparkles, Home, Construction, Leaf, Truck } from 'lucide-react'; // NOTE: Importamos algunos iconos relevantes
 
-type ServicesDictionary = typeof dictionary.services_section;
+// FIX: Usar typeof para obtener el tipo correcto de la sección de servicios del diccionario inglés
+type ServicesDictionary = typeof enDictType.services_section;
 
 const cardVariants: Variants = {
   hidden: { opacity: 0, y: 50 },
@@ -20,16 +22,25 @@ const cardVariants: Variants = {
   },
 };
 
-// NOTE: Mapeo de iconos a los títulos de los servicios para flexibilidad
+// NOTE: Mapeo de iconos más robusto basado en títulos (ajustar si es necesario)
+// Se usan iconos de Lucide para consistencia. Añadí algunos más.
 const serviceIcons: { [key: string]: React.ReactNode } = {
-  "Residential Cleaning": <Sparkles className="h-10 w-10 text-primary" />,
+  "Residential Cleaning": <Home className="h-10 w-10 text-primary" />,
+  "Private Homes": <Sparkles className="h-10 w-10 text-primary" />, // Usando Sparkles para lujo
   "Post-Construction": <Construction className="h-10 w-10 text-primary" />,
+  "Move In / Move Out": <Truck className="h-10 w-10 text-primary" />, // Icono de mudanza
   "Eco-Friendly Cleaning": <Leaf className="h-10 w-10 text-primary" />,
+  // Español (asegúrate que las llaves coincidan EXACTAMENTE con los títulos en es.js)
+  "Limpieza Residencial": <Home className="h-10 w-10 text-primary" />,
+  "Casas Privadas": <Sparkles className="h-10 w-10 text-primary" />,
+  "Post-Construcción": <Construction className="h-10 w-10 text-primary" />,
+  "Múdate Adentro / Afuera": <Truck className="h-10 w-10 text-primary" />,
+  "Limpieza Ecológica": <Leaf className="h-10 w-10 text-primary" />,
 };
+
 
 export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en'; dictionary: ServicesDictionary }) {
   return (
-    // FIX: Fondo cambiado a marrón primario y texto a blanco para alto contraste
     <motion.section
       className="py-24 bg-soft-black"
       initial={{ opacity: 0 }}
@@ -44,26 +55,27 @@ export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en
         <h2 className="font-serif text-5xl font-bold text-white mb-16">
           {dictionary.title}
         </h2>
-        
-        <div className="grid md:grid-cols-3 gap-8">
+
+        {/* FIX: Ajustado a grid-cols-5 en lg y reducido el gap */}
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {dictionary.services.map((service, index) => (
             <motion.div
               key={service.title}
-              // FIX: Tarjetas con fondo claro (secondary) y texto oscuro para contraste
-              className="bg-secondary p-8 rounded-lg text-center flex flex-col items-center transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2"
+              className="bg-secondary p-6 rounded-lg text-center flex flex-col items-center transition-all duration-300 hover:shadow-card-hover hover:-translate-y-2" // FIX: Padding reducido un poco
               variants={cardVariants}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.5 }}
               custom={index}
             >
-              <div className="mb-6">
+              <div className="mb-5">
+                {/* FIX: Usar el mapeo de iconos; fallback a Sparkles si no se encuentra */}
                 {serviceIcons[service.title] || <Sparkles className="h-10 w-10 text-primary" />}
               </div>
-              <h3 className="text-2xl font-bold font-serif text-soft-black mb-4">
+              <h3 className="text-xl font-bold font-serif text-soft-black mb-3"> {/* FIX: Tamaño de fuente ajustado */}
                 {service.title}
               </h3>
-              <p className="text-gray-600 flex-grow">
+              <p className="text-gray-600 text-sm flex-grow"> {/* FIX: Tamaño de fuente ajustado */}
                 {service.description}
               </p>
             </motion.div>
@@ -71,6 +83,7 @@ export default function ServicesSection({ lang, dictionary }: { lang: 'es' | 'en
         </div>
 
         <div className="mt-16">
+           {/* FIX: El botón ahora redirige a la página de servicios principal */}
           <Button href={`/${lang}/services`}>
             {dictionary.button}
           </Button>

@@ -1,4 +1,4 @@
-// RUTA: src/app/layout.tsx (REEMPLAZO COMPLETO)
+// RUTA: src/app/layout.tsx (ACTUALIZAR LLAMADA A NAVBAR)
 
 import type { Metadata } from "next";
 import { Inter, Lora } from "next/font/google";
@@ -7,7 +7,6 @@ import Navbar from "@/components/sections/Navbar";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/i18n.config";
 import Footer from "@/components/sections/Footer";
-
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,10 +23,9 @@ export const metadata: Metadata = {
   description: "Premium cleaning services with a touch of serenity.",
 };
 
-// Este es ahora el ÚNICO layout. Es asíncrono y maneja todo.
 export default async function RootLayout({
   children,
-  params, // Los parámetros de la URL (como 'lang') están disponibles aquí.
+  params,
 }: Readonly<{
   children: React.ReactNode;
   params: { lang: Locale };
@@ -35,12 +33,13 @@ export default async function RootLayout({
   const dict = await getDictionary(params.lang);
 
   return (
-    // La etiqueta <html> necesita saber el idioma actual.
     <html lang={params.lang}>
       <body className={`${inter.variable} ${lora.variable} font-sans bg-soft-black text-white`}>
-              <Navbar lang={params.lang} dictionary={dict.navbar} />
+              {/* FIX: Pasar también dict.footer a Navbar */}
+              <Navbar lang={params.lang} dictionary={dict.navbar} footerDictionary={dict.footer} />
         {children}
-        <Footer lang={params.lang} /> 
+        {/* Footer ya recibe el lang, obtendrá el diccionario internamente */}
+        <Footer lang={params.lang} />
       </body>
     </html>
   );

@@ -1,4 +1,4 @@
-// RUTA: src/app/[lang]/about/page.tsx (REDISEÑO COMPLETO)
+// RUTA: src/app/[lang]/about/page.tsx (ACTUALIZADO)
 import Image from 'next/image';
 import { getDictionary } from '@/lib/dictionary';
 import type { Locale } from '@/i18n.config';
@@ -37,7 +37,7 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
 
       {/* --- HERO / MISIÓN --- */}
       <section className="relative py-32 md:py-48 bg-secondary">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: "url('/unsplash-image-owtKY1AVwg8.webp')" }}
         />
@@ -45,16 +45,21 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
            <p className="font-semibold text-primary uppercase tracking-wider mb-4">
               {t.mission_subtitle}
             </p>
-          <h1 className="font-serif text-4xl md:text-5xl text-soft-black leading-tight">
+          <h1 className="font-serif text-4xl md:text-5xl text-soft-black leading-tight mb-6"> {/* Añadido margen inferior */}
             &quot;{t.mission_text}&quot;
           </h1>
+           {/* FIX: Añadido el eslogan debajo de la misión */}
+           {t.slogan && (
+             <p className="text-xl italic text-gray-700 mt-4">&quot;{t.slogan}&quot;</p>
+           )}
         </div>
       </section>
 
-      {/* --- HISTORIA DE LA FUNDADORA --- */}
+      {/* --- HISTORIA --- */}
       <section className="py-24 md:py-32">
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Imagen */}
             <div className="relative h-[500px] md:h-[600px] w-full">
               <div className="absolute -left-4 -top-4 w-full h-full bg-secondary rounded-lg z-0" />
               <Image
@@ -65,19 +70,21 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
+             {/* Texto */}
             <div className="text-left lg:-ml-16 bg-white p-8 md:p-12 rounded-lg shadow-xl relative z-20">
+              {/* FIX: Cambiado el título a story_title */}
               <h2 className="text-4xl lg:text-5xl font-bold font-serif text-soft-black mb-6">
-                {t.title}
+                {t.story_title}
               </h2>
+              {/* FIX: Reemplazado párrafos individuales por el contenido completo */}
               <div className="text-lg text-gray-700 leading-relaxed space-y-6">
-                <p>{t.paragraph1}</p>
-                <p>{t.paragraph2}</p>
+                <p>{t.story_content}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
-      
+
       {/* --- VALORES FUNDAMENTALES --- */}
       <section className="py-24 bg-secondary">
         <div className="container mx-auto px-4 text-center">
@@ -105,9 +112,10 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
       <section className="py-24 md:py-32 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold font-serif text-soft-black">El Equipo en Acción</h2>
-            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">Comprometidos con la excelencia en cada detalle, nuestro equipo transforma espacios con dedicación y profesionalismo.</p>
+            <h2 className="text-4xl font-bold font-serif text-soft-black">{t.gallery_title}</h2>
+            <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t.gallery_subtitle}</p>
           </div>
+          {/* Imágenes de la galería (sin cambios) */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="grid gap-4">
                   <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images23.webp" alt="Cleaning oven" width={400} height={500}/>
@@ -132,11 +140,11 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
       {/* --- CTA FINAL --- */}
       <section className="bg-soft-black text-white text-center py-20">
         <div className="container mx-auto px-4">
-          <h2 className="font-serif text-4xl font-bold">¿Listo para un Hogar Impecable?</h2>
-          <p className="mt-4 max-w-2xl mx-auto">Permítenos mostrarte la diferencia que un equipo dedicado y detallista puede hacer en tu hogar.</p>
+          <h2 className="font-serif text-4xl font-bold">{t.cta_title}</h2>
+          <p className="mt-4 max-w-2xl mx-auto">{t.cta_subtitle}</p>
           <div className="mt-8">
             <Button href={`/${lang}/agendar-visita`} className="!bg-white !text-primary hover:!bg-gray-200">
-              Solicita tu Estimación Gratuita
+              {t.cta_button}
             </Button>
           </div>
         </div>

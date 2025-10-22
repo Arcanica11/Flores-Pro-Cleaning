@@ -1,61 +1,95 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // Asegúrate que Variants esté importado si lo usas para tipar
 
 type HeroProps = {
   title: string;
+  subtitle?: string;
 };
 
-const Hero = ({ title }: HeroProps) => {
-  const containerVariants = {
+const Hero = ({ title, subtitle }: HeroProps) => {
+
+  // 1. DEFINICIÓN DE VARIANTES (dentro del componente)
+  const containerVariants: Variants = { // Tipado opcional con Variants
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
+        delayChildren: 0.2,
       },
     },
   };
 
-  // FIX: Se elimina la propiedad 'transition' de la variante 'visible'.
-  // Las variantes deben definir los estados (el "qué"), no necesariamente la forma en que se transiciona a ellos.
-  const letterVariants = {
+  const letterVariants: Variants = { // Tipado opcional con Variants
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 200,
+      },
+    },
+  };
+
+  const subtitleVariants: Variants = { // Tipado opcional con Variants
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
+      transition: {
+        delay: 0.8,
+        duration: 0.8,
+        ease: "easeOut",
+      },
     },
   };
 
   return (
-    <section className="relative h-screen w-full flex items-center justify-center">
+    <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-4">
+      {/* Fondo y superposición */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover bg-center brightness-75"
         style={{ backgroundImage: "url('/unsplash-image-U39FPHKfDu0.webp')" }}
       />
-      <div className="absolute inset-0 bg-soft-black/50" />
-      <motion.h1
-        className="z-10 text-6xl md:text-8xl font-serif text-white text-center"
-        variants={containerVariants}
-        initial="hidden"
-        animate="visible"
-      >
-        {title.split("").map((letter, index) => (
-          <motion.span
-            key={index}
-            variants={letterVariants}
-            // FIX: La propiedad 'transition' se define directamente en el componente motion.
-            // Esto le dice a Framer Motion "cómo" debe animar entre las variantes 'hidden' y 'visible'.
-            transition={{
-              type: "spring",
-              stiffness: 100,
-              damping: 10,
-            }}
+      <div className="absolute inset-0 bg-soft-black/40" />
+
+      {/* Contenedor de contenido */}
+      <div className="z-10 relative">
+        {/* 2. APLICACIÓN DE VARIANTES AL CONTENEDOR PADRE */}
+        <motion.h1
+          className="text-6xl md:text-8xl font-serif text-white mb-4 md:mb-6"
+          variants={containerVariants} // Correcto
+          initial="hidden"
+          animate="visible"
+          aria-label={title}
+        >
+          {title.split("").map((letter, index) => (
+            // 3. APLICACIÓN DE KEY Y VARIANTES A LOS HIJOS MAPEADOS
+            <motion.span
+              key={index}             // Correcto y necesario para React
+              variants={letterVariants} // Correcto, hereda animación del padre
+              className="inline-block"
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        {/* 4. APLICACIÓN DE VARIANTES AL SUBTÍTULO */}
+        {subtitle && (
+          <motion.p
+            className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto"
+            variants={subtitleVariants} // Correcto
+            initial="hidden"
+            animate="visible"
           >
-            {letter}
-          </motion.span>
-        ))}
-      </motion.h1>
+            {subtitle}
+          </motion.p>
+        )}
+      </div>
     </section>
   );
 };
