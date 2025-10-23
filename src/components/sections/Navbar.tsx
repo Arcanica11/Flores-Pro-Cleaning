@@ -73,9 +73,9 @@ export default function Navbar({ lang, dictionary, footerDictionary }: {
               <Image
                 src="/floresLogoWeb.png"
                 alt="Flores Pro-Cleaning Logo"
-                width={140}
-                height={40}
-                className="h-auto w-200" // Puede que quieras ajustar esto o usar object-contain
+                width={160} 
+                height={46}
+                className="h-auto"
                 priority
               />
             </Link>

@@ -82,9 +82,8 @@ const ProcessSteps = ({ title, subtitle, description, steps }: { title: string; 
         <p className="text-gray-600 max-w-3xl mx-auto mb-8">{description}</p>
         <div className="grid md:grid-cols-3 gap-6 text-left">
             {steps.map((step, index) => (
-                <div key={step.title} className="border border-gray-200 p-6 rounded">
-                     <h4 className="font-bold text-primary mb-2">{`${index + 1}. ${step.title}`}</h4>
-                     <p className="text-gray-600 text-sm">{step.description}</p>
+               <div key={step.title} className="border border-gray-200 p-4 rounded"> {/* Padding reducido */}                     <h4 className="font-bold text-primary mb-2">{`${index + 1}. ${step.title}`}</h4>
+                    <p className="text-gray-600 text-xs sm:text-sm">{step.description}</p> {/* Tamaño de fuente reducido */}
                 </div>
             ))}
         </div>
@@ -116,11 +115,9 @@ export default async function ServicesPage({ params: { lang } }: { params: { lan
           {t.services.map((service, index) => (
             <section key={service.slug} id={service.slug} className="scroll-mt-20">
               {/* Contenedor Grid Principal */}
-              <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-start">
-
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-8 md:gap-16 items-start">
                 {/* --- Columna de Texto --- */}
-                <div className={`text-left ${index % 2 !== 0 ? 'md:order-2' : ''}`}>
-                  <h2 className="font-serif text-4xl font-bold text-primary mb-4">{service.title}</h2>
+              <div className={`order-1 ${index % 2 !== 0 ? 'md:order-2' : 'md:order-1'}`}>                  <h2 className="font-serif text-4xl font-bold text-primary mb-4">{service.title}</h2>
                   {/* Mostrar descripción del héroe si existe */}
                   {service.hero_description && (
                     <p className="text-gray-600 mb-8 leading-relaxed">{service.hero_description}</p>
@@ -247,8 +244,7 @@ export default async function ServicesPage({ params: { lang } }: { params: { lan
                 </div>
 
                 {/* --- Columna de Imagen --- */}
-                <div className={`relative h-96 md:h-[500px] w-full rounded-lg overflow-hidden shadow-xl ${index % 2 !== 0 ? 'md:order-1' : ''} sticky top-24`}>
-                   <Image
+                <div className={`order-2 relative h-80 md:h-[500px] w-full rounded-lg overflow-hidden shadow-xl ${index % 2 !== 0 ? 'md:order-1' : 'md:order-2'} mt-8 md:mt-0`}> {/* Añadido margen superior en móvil */}                   <Image
                       src={serviceImages[service.slug] || placeholderImage}
                       alt={service.title}
                       fill

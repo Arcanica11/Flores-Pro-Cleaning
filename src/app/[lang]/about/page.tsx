@@ -78,7 +78,8 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
               </h2>
               {/* FIX: Reemplazado párrafos individuales por el contenido completo */}
               <div className="text-lg text-gray-700 leading-relaxed space-y-6">
-                <p>{t.story_content}</p>
+               <p>{t.story_p1}</p>
+               <p>{t.story_p2}</p>
               </div>
             </div>
           </div>

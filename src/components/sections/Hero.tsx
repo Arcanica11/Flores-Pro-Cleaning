@@ -60,8 +60,8 @@ const Hero = ({ title, subtitle }: HeroProps) => {
       <div className="z-10 relative">
         {/* 2. APLICACIÓN DE VARIANTES AL CONTENEDOR PADRE */}
         <motion.h1
-          className="text-6xl md:text-8xl font-serif text-white mb-4 md:mb-6"
-          variants={containerVariants} // Correcto
+          className="text-5xl sm:text-6xl md:text-8xl font-serif text-white mb-4 md:mb-6" 
+          variants={containerVariants}
           initial="hidden"
           animate="visible"
           aria-label={title}
