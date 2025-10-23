@@ -99,7 +99,7 @@ export const dictionary = {
     "description": "Flores Pro Cleaning es una empresa familiar dedicada a brindar servicios de limpieza profesional de alta calidad a los residentes de Austin, TX.",
     "navigation_title": "NAVEGACIÓN",
     "hours_title": "HORARIOS",
-    "hours_content": "Lunes - Viernes <br> 8:00am - 3:30pm",
+    "hours_content": "Lunes - Sábado <br> 8:00am - 5:00pm",
     "contact_email": "floresprocleaning@gmail.com",
     "contact_phone": "(512) 367-0154",
     "copyright": "© 2025 Flores Pro-Cleaning. Todos los derechos reservados.",

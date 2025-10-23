@@ -63,10 +63,10 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
             <div className="relative h-[500px] md:h-[600px] w-full">
               <div className="absolute -left-4 -top-4 w-full h-full bg-secondary rounded-lg z-0" />
               <Image
-                src="/lety.webp"
+               src="/team-photo.jpg"
                 alt={t.image_alt}
                 fill
-                className="object-cover object-center rounded-lg shadow-2xl z-10 relative"
+                className="object-contain object-center rounded-lg shadow-2xl z-10 relative"      
                 sizes="(max-width: 1024px) 100vw, 50vw"
               />
             </div>
@@ -117,23 +117,24 @@ export default async function AboutPage({ params: { lang } }: { params: { lang: 
             <p className="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">{t.gallery_subtitle}</p>
           </div>
           {/* Imágenes de la galería (sin cambios) */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <div className="grid gap-4">
-                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images23.webp" alt="Cleaning oven" width={400} height={500}/>
-                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images14.webp" alt="Cleaning window" width={400} height={600}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/team-action-1.jpg" alt="Team cleaning action 1" width={400} height={600}/> {/* Ajustar height si es necesario */}
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/team-action-2.jpg" alt="Team cleaning action 2" width={400} height={600}/> {/* Ajustar height si es necesario */} 
               </div>
               <div className="grid gap-4">
-                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images27.webp" alt="High dusting" width={400} height={600}/>
-                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images41.webp" alt="Spraying window" width={400} height={500}/>
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/team-action-4.jpg" alt="Team cleaning action 4" width={400} height={500}/> {/* Ajustar height si es necesario */}
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/team-action-5.jpg" alt="Team cleaning action 4" width={400} height={500}/> {/* Ajustar height si es necesario */}
               </div>
-              <div className="grid gap-4">
+                  <Image className="h-auto max-w-full rounded-lg shadow-md" src="/team-action-3.jpg" alt="Team cleaning action 3" width={400} height={500}/> {/* Ajustar height si es necesario */}
+              {/* <div className="grid gap-4">
                   <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images24.webp" alt="Wiping oven door" width={400} height={500}/>
                   <Image className="h-auto max-w-full rounded-lg shadow-md" src="/unsplash-image-WnuDJlnuOhU.webp" alt="Dusting furniture" width={400} height={600}/>
               </div>
               <div className="grid gap-4">
                   <Image className="h-auto max-w-full rounded-lg shadow-md" src="/unsplash-image-SqOMDOQb3ws.webp" alt="Cleaning kitchen counter" width={400} height={600}/>
                   <Image className="h-auto max-w-full rounded-lg shadow-md" src="/filler_images32.webp" alt="Dusting mirror" width={400} height={500}/>
-              </div>
+              </div> */}
           </div>
         </div>
       </section>
