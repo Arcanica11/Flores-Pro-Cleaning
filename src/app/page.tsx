@@ -14,7 +14,7 @@ export default async function Home({ params: { lang } }: { params: { lang: 'es' 
   return (
     <main>
       {/* FIX: Pasar el subtítulo al componente Hero */}
-      <Hero title={dict.hero.title} subtitle={dict.hero.subtitle} />
+      <Hero lang={lang} title={dict.hero.title} />
       <WhyUs lang={lang} dictionary={dict.why_us} />
       <ServicesSection lang={lang} dictionary={dict.services_section} />
       <Process lang={lang} dictionary={dict.process} />
