@@ -35,10 +35,14 @@ export default async function RootLayout({
   return (
     <html lang={params.lang}>
       <body className={`${inter.variable} ${lora.variable} font-sans bg-soft-black text-white`}>
-              {/* FIX: Pasar también dict.footer a Navbar */}
-              <Navbar lang={params.lang} dictionary={dict.navbar} footerDictionary={dict.footer} />
+              {/* FIX: Pasar también dict.services_page a Navbar */}
+              <Navbar
+                lang={params.lang}
+                dictionary={dict.navbar}
+                footerDictionary={dict.footer}
+                servicesDictionary={dict.services_page} // <-- Añadir esta línea
+              />
         {children}
-        {/* Footer ya recibe el lang, obtendrá el diccionario internamente */}
         <Footer lang={params.lang} />
       </body>
     </html>

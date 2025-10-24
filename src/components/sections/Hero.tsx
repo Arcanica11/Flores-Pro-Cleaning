@@ -1,97 +1,161 @@
-"use client";
+// RUTA: src/components/sections/Hero.tsx (RESTAURADO DISEÑO OSCURO + CORRECCIÓN CARGA)
+'use client';
 
-import { motion, Variants } from "framer-motion"; // Asegúrate que Variants esté importado si lo usas para tipar
+import { motion, Variants } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import type { Locale } from '@/i18n.config'; // Asegúrate que esta ruta sea correcta
 
+// NOTE: Volver a la definición de props original
 type HeroProps = {
-  title: string;
-  subtitle?: string;
+  lang: Locale; // Añadir lang para el botón
+  title: string | undefined;
+  subtitle?: string | undefined; // Hacerlos opcionales por si acaso
 };
 
-const Hero = ({ title, subtitle }: HeroProps) => {
-
-  // 1. DEFINICIÓN DE VARIANTES (dentro del componente)
-  const containerVariants: Variants = { // Tipado opcional con Variants
+// --- Animaciones ---
+const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        delayChildren: 0.2,
-      },
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.05, // Letra por letra
+            delayChildren: 0.2,
+        },
     },
-  };
+};
 
-  const letterVariants: Variants = { // Tipado opcional con Variants
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        type: "spring",
-        damping: 12,
-        stiffness: 200,
-      },
-    },
-  };
-
-  const subtitleVariants: Variants = { // Tipado opcional con Variants
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: 0.8,
-        duration: 0.8,
-        ease: "easeOut",
-      },
+        opacity: 1,
+        y: 0,
+        transition: {
+            type: 'spring',
+            damping: 12,
+            stiffness: 100,
+        },
     },
-  };
+};
+
+const subtitleVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 0.8,
+            duration: 0.8,
+            ease: 'easeOut',
+        },
+    },
+};
+
+const buttonVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            delay: 1.0,
+            duration: 0.8,
+            ease: 'easeOut',
+        },
+    },
+};
+// --- Fin Animaciones ---
+
+
+export default function Hero({ lang, title: initialTitle, subtitle: initialSubtitle }: HeroProps) {
+  // Estado local para manejar textos
+  const [heroTitle, setHeroTitle] = useState(" ");
+  const [heroSubtitle, setHeroSubtitle] = useState<string | undefined>(undefined);
+
+  // Actualizar estado local cuando las props cambien
+  useEffect(() => {
+    setHeroTitle(initialTitle ?? " ");
+    setHeroSubtitle(initialSubtitle);
+  }, [initialTitle, initialSubtitle]);
+
+  // Texto y enlace del botón
+  const buttonText = lang === 'es' ? 'Agendar Visita' : 'Book Visit';
+  const buttonLink = `/${lang}/agendar-visita`;
+
+  // Dividir título (usando estado local)
+  // FIX: Asegurarse que title sea string antes de split
+  const words = typeof heroTitle === 'string' ? heroTitle.split(' ') : [];
 
   return (
-    <section className="relative h-screen w-full flex flex-col items-center justify-center text-center px-4">
-      {/* Fondo y superposición */}
-      <div
-        className="absolute inset-0 bg-cover bg-center brightness-75"
-        style={{ backgroundImage: "url('/unsplash-image-U39FPHKfDu0.webp')" }}
+    <section className="relative w-full min-h-[calc(100vh-80px)] md:min-h-screen bg-soft-black flex items-center justify-start text-white overflow-hidden">
+      {/* Imagen de Fondo */}
+      <Image
+        src="/unsplash-image-U39FPHKfDu0.webp"
+        alt="Flores Pro-Cleaning Hero Background"
+        fill
+        priority
+        className="object-cover object-center z-0 brightness-75" // Imagen oscurecida
       />
-      <div className="absolute inset-0 bg-soft-black/40" />
 
-      {/* Contenedor de contenido */}
-      <div className="z-10 relative">
-        {/* 2. APLICACIÓN DE VARIANTES AL CONTENEDOR PADRE */}
+      {/* Overlay con degradado oscuro */}
+      <div
+        className="absolute inset-0 z-10 bg-gradient-to-r from-black/70 via-black/40 to-transparent lg:from-black/80 lg:via-black/50 lg:to-transparent"
+        aria-hidden="true"
+       />
+
+      {/* Contenido del Hero */}
+      <div className="container relative z-20 mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 py-16 text-left">
+        {/* Título Animado */}
         <motion.h1
-          className="text-5xl sm:text-6xl md:text-8xl font-serif text-white mb-4 md:mb-6" 
+          key={heroTitle}
+          // FIX: Ajuste tamaños y eliminado whitespace-nowrap para mejor ajuste móvil
+          className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white mb-4 md:mb-6 leading-tight max-w-3xl min-h-[2em]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          aria-label={title}
+          aria-label={heroTitle}
         >
-          {title.split("").map((letter, index) => (
-            // 3. APLICACIÓN DE KEY Y VARIANTES A LOS HIJOS MAPEADOS
-            <motion.span
-              key={index}             // Correcto y necesario para React
-              variants={letterVariants} // Correcto, hereda animación del padre
-              className="inline-block"
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </motion.span>
+          {words.map((word, i) => (
+            // FIX: Quitado whitespace-nowrap para permitir saltos de línea naturales
+            <span key={i} className="inline-block mr-3 lg:mr-4">
+              {word.split('').map((char, j) => (
+                <motion.span key={j} className="inline-block" variants={itemVariants}>
+                  {char}
+                </motion.span>
+              ))}
+            </span>
           ))}
+          {heroTitle === " " && <>&nbsp;</>}
         </motion.h1>
 
-        {/* 4. APLICACIÓN DE VARIANTES AL SUBTÍTULO */}
-        {subtitle && (
+        {/* Párrafo (Subtítulo) */}
+        {/* FIX: Renderizar usando estado local heroSubtitle */}
+        {heroSubtitle && (
           <motion.p
-            className="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto"
-            variants={subtitleVariants} // Correcto
+            className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl"
+            variants={subtitleVariants}
             initial="hidden"
             animate="visible"
           >
-            {subtitle}
+            {heroSubtitle}
           </motion.p>
         )}
+
+        {/* Botón CTA */}
+        {/* FIX: Asegurar que el botón se renderice */}
+        <motion.div
+          variants={buttonVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          <Link
+             href={buttonLink}
+             className="inline-flex items-center justify-center rounded-md text-base font-medium transition-colors bg-primary text-white shadow hover:bg-primary-hover h-12 px-8"
+           >
+             {buttonText}
+          </Link>
+        </motion.div>
       </div>
     </section>
   );
-};
-
-export default Hero;
+}
