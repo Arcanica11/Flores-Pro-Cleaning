@@ -1,17 +1,18 @@
-// RUTA: src/components/sections/Hero.tsx (RESTAURADO DISEÑO OSCURO + CORRECCIÓN CARGA)
+// RUTA: src/components/sections/Hero.tsx (COMPLETO - CORREGIDO PARA COINCIDIR CON page.tsx)
 'use client';
 
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Locale } from '@/i18n.config'; // Asumimos que lang vendrá con page.tsx
 import { useEffect, useState } from 'react';
-import type { Locale } from '@/i18n.config'; // Asegúrate que esta ruta sea correcta
 
-// NOTE: Volver a la definición de props original
+// FIX: Las props deben coincidir con CÓMO las envía page.tsx
+// page.tsx envía: title, subtitle. También añadimos lang.
 type HeroProps = {
-  lang: Locale; // Añadir lang para el botón
+  lang: Locale;
   title: string | undefined;
-  subtitle?: string | undefined; // Hacerlos opcionales por si acaso
+  subtitle?: string | undefined;
 };
 
 // --- Animaciones ---
@@ -20,7 +21,7 @@ const containerVariants: Variants = {
     visible: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.05, // Letra por letra
+            staggerChildren: 0.05,
             delayChildren: 0.2,
         },
     },
@@ -67,23 +68,23 @@ const buttonVariants: Variants = {
 // --- Fin Animaciones ---
 
 
+// FIX: Recibir lang, title, y subtitle directamente
 export default function Hero({ lang, title: initialTitle, subtitle: initialSubtitle }: HeroProps) {
-  // Estado local para manejar textos
+  
+  // Estado local para manejar textos y evitar fallbacks visibles
   const [heroTitle, setHeroTitle] = useState(" ");
   const [heroSubtitle, setHeroSubtitle] = useState<string | undefined>(undefined);
 
   // Actualizar estado local cuando las props cambien
   useEffect(() => {
-    setHeroTitle(initialTitle ?? " ");
-    setHeroSubtitle(initialSubtitle);
+    setHeroTitle(initialTitle ?? " "); // Usar prop 'initialTitle'
+    setHeroSubtitle(initialSubtitle); // Usar prop 'initialSubtitle'
   }, [initialTitle, initialSubtitle]);
 
-  // Texto y enlace del botón
+  // Texto y enlace del botón (usa 'lang')
   const buttonText = lang === 'es' ? 'Agendar Visita' : 'Book Visit';
   const buttonLink = `/${lang}/agendar-visita`;
 
-  // Dividir título (usando estado local)
-  // FIX: Asegurarse que title sea string antes de split
   const words = typeof heroTitle === 'string' ? heroTitle.split(' ') : [];
 
   return (
@@ -94,7 +95,7 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
         alt="Flores Pro-Cleaning Hero Background"
         fill
         priority
-        className="object-cover object-center z-0 brightness-75" // Imagen oscurecida
+        className="object-cover object-center z-0 brightness-75"
       />
 
       {/* Overlay con degradado oscuro */}
@@ -108,7 +109,7 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
         {/* Título Animado */}
         <motion.h1
           key={heroTitle}
-          // FIX: Ajuste tamaños y eliminado whitespace-nowrap para mejor ajuste móvil
+          // FIX: Quitado whitespace-nowrap para ajuste en móvil
           className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white mb-4 md:mb-6 leading-tight max-w-3xl min-h-[2em]"
           variants={containerVariants}
           initial="hidden"
@@ -116,8 +117,7 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
           aria-label={heroTitle}
         >
           {words.map((word, i) => (
-            // FIX: Quitado whitespace-nowrap para permitir saltos de línea naturales
-            <span key={i} className="inline-block mr-3 lg:mr-4">
+            <span key={i} className="inline-block mr-3 lg:mr-4"> {/* Quitado whitespace-nowrap */}
               {word.split('').map((char, j) => (
                 <motion.span key={j} className="inline-block" variants={itemVariants}>
                   {char}
@@ -129,7 +129,6 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
         </motion.h1>
 
         {/* Párrafo (Subtítulo) */}
-        {/* FIX: Renderizar usando estado local heroSubtitle */}
         {heroSubtitle && (
           <motion.p
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl"
@@ -142,7 +141,6 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
         )}
 
         {/* Botón CTA */}
-        {/* FIX: Asegurar que el botón se renderice */}
         <motion.div
           variants={buttonVariants}
           initial="hidden"
