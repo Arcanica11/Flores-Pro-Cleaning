@@ -23,7 +23,6 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
     <main>
       {/* FIX: Pasar 'lang', 'title' y 'subtitle' */}
       <Hero lang={lang} title={heroData?.title} subtitle={heroData?.subtitle} />
-
       {/* Renderizar otras secciones de forma segura */}
       {whyUsData && <WhyUs lang={lang} dictionary={whyUsData} />}
       {servicesSectionData && <ServicesSection lang={lang} dictionary={servicesSectionData} />}

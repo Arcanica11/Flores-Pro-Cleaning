@@ -1,14 +1,12 @@
-// RUTA: src/components/sections/Hero.tsx (COMPLETO - CORREGIDO PARA COINCIDIR CON page.tsx)
+// RUTA: src/components/sections/Hero.tsx (RESTAURADO Y CORREGIDO)
 'use client';
 
 import { motion, Variants } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import type { Locale } from '@/i18n.config'; // Asumimos que lang vendrá con page.tsx
-import { useEffect, useState } from 'react';
+import type { Locale } from '@/i18n.config'; // Necesario para 'lang'
 
-// FIX: Las props deben coincidir con CÓMO las envía page.tsx
-// page.tsx envía: title, subtitle. También añadimos lang.
+// FIX: Definición de props que coincide con page.tsx + lang
 type HeroProps = {
   lang: Locale;
   title: string | undefined;
@@ -68,24 +66,19 @@ const buttonVariants: Variants = {
 // --- Fin Animaciones ---
 
 
-// FIX: Recibir lang, title, y subtitle directamente
-export default function Hero({ lang, title: initialTitle, subtitle: initialSubtitle }: HeroProps) {
-  
-  // Estado local para manejar textos y evitar fallbacks visibles
-  const [heroTitle, setHeroTitle] = useState(" ");
-  const [heroSubtitle, setHeroSubtitle] = useState<string | undefined>(undefined);
+// FIX: Recibir lang, title, subtitle directamente
+export default function Hero({ lang, title, subtitle }: HeroProps) {
 
-  // Actualizar estado local cuando las props cambien
-  useEffect(() => {
-    setHeroTitle(initialTitle ?? " "); // Usar prop 'initialTitle'
-    setHeroSubtitle(initialSubtitle); // Usar prop 'initialSubtitle'
-  }, [initialTitle, initialSubtitle]);
+  // FIX: Usar directamente las props o un fallback simple si son undefined
+  const displayTitle = title ?? " "; // Usar espacio para fallback inicial
+  const displaySubtitle = subtitle;
 
-  // Texto y enlace del botón (usa 'lang')
+  // Texto y enlace del botón
   const buttonText = lang === 'es' ? 'Agendar Visita' : 'Book Visit';
   const buttonLink = `/${lang}/agendar-visita`;
 
-  const words = typeof heroTitle === 'string' ? heroTitle.split(' ') : [];
+  // Dividir título (solo si es string)
+  const words = typeof displayTitle === 'string' ? displayTitle.split(' ') : [];
 
   return (
     <section className="relative w-full min-h-[calc(100vh-80px)] md:min-h-screen bg-soft-black flex items-center justify-start text-white overflow-hidden">
@@ -108,15 +101,16 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
       <div className="container relative z-20 mx-auto px-4 sm:px-8 lg:px-16 xl:px-24 py-16 text-left">
         {/* Título Animado */}
         <motion.h1
-          key={heroTitle}
-          // FIX: Quitado whitespace-nowrap para ajuste en móvil
+          key={displayTitle} // Key para reanimación si cambia el idioma
+          // FIX: Quitado whitespace-nowrap para ajuste móvil
           className="text-4xl sm:text-5xl lg:text-6xl font-serif text-white mb-4 md:mb-6 leading-tight max-w-3xl min-h-[2em]"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          aria-label={heroTitle}
+          aria-label={displayTitle}
         >
-          {words.map((word, i) => (
+          {/* FIX: Renderizar solo si displayTitle no es solo un espacio */}
+          {displayTitle !== " " ? words.map((word, i) => (
             <span key={i} className="inline-block mr-3 lg:mr-4"> {/* Quitado whitespace-nowrap */}
               {word.split('').map((char, j) => (
                 <motion.span key={j} className="inline-block" variants={itemVariants}>
@@ -124,19 +118,18 @@ export default function Hero({ lang, title: initialTitle, subtitle: initialSubti
                 </motion.span>
               ))}
             </span>
-          ))}
-          {heroTitle === " " && <>&nbsp;</>}
+          )) : <>&nbsp;</>} {/* Espacio reservado si aún no hay título */}
         </motion.h1>
 
         {/* Párrafo (Subtítulo) */}
-        {heroSubtitle && (
+        {displaySubtitle && (
           <motion.p
             className="text-lg md:text-xl text-gray-200 mb-8 max-w-xl"
             variants={subtitleVariants}
             initial="hidden"
             animate="visible"
           >
-            {heroSubtitle}
+            {displaySubtitle}
           </motion.p>
         )}
 
