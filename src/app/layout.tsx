@@ -8,6 +8,7 @@ import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/i18n.config";
 import Footer from "@/components/sections/Footer";
 import FloatingCallButton from "@/components/ui/FloatingCallButton";
+import { i18n } from "@/i18n.config";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -31,7 +32,11 @@ export default async function RootLayout({
   children: React.ReactNode;
   params: { lang: Locale };
 }>) {
-  const dict = await getDictionary(params.lang);
+ 
+  const lang = params?.lang && i18n.locales.includes(params.lang) ? params.lang : i18n.defaultLocale;
+  const dict = await getDictionary(lang);
+  const contactPhone = dict.footer.contact_phone;
+  const contactEmail = dict.footer.contact_email;
 
   return (
     <html lang={params.lang}>
@@ -45,7 +50,11 @@ export default async function RootLayout({
               />
         {children}
         <Footer lang={params.lang} />
-        <FloatingCallButton />
+      <FloatingCallButton
+            lang={lang}
+            phoneNumber={contactPhone}
+            email={contactEmail}
+        />
       </body>
     </html>
   );
