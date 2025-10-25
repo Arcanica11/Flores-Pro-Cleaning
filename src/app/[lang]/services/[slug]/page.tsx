@@ -41,6 +41,7 @@ export default async function ServicePage({ params: { lang, slug } }: ServicePag
 
   // Obtener la URL de la imagen
   const imageUrl = serviceImages[service.slug] || placeholderImage;
+  const phoneNumber = dict.footer.contact_phone;
 
   return (
     // Fondo base blanco para la página
@@ -61,6 +62,7 @@ export default async function ServicePage({ params: { lang, slug } }: ServicePag
         // @ts-ignore - Usar si hay discrepancias entre el tipo inferido del diccionario y ServiceData
         serviceData={service} // Pasar todos los datos del servicio encontrado
         imageUrl={imageUrl}   // Pasar la URL de la imagen
+        phoneNumber={phoneNumber}
       />
 
       {/* Puedes añadir otras secciones aquí si fueran necesarias, debajo del ServiceDisplay */}

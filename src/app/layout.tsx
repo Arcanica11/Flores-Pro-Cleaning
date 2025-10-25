@@ -7,6 +7,7 @@ import Navbar from "@/components/sections/Navbar";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/i18n.config";
 import Footer from "@/components/sections/Footer";
+import FloatingCallButton from "@/components/ui/FloatingCallButton";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default async function RootLayout({
               />
         {children}
         <Footer lang={params.lang} />
+        <FloatingCallButton />
       </body>
     </html>
   );

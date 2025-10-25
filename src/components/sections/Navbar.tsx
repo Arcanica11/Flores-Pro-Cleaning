@@ -155,14 +155,14 @@ export default function Navbar({ lang, dictionary, footerDictionary, servicesDic
           <div className="hidden lg:flex flex-1 justify-end items-center gap-4">
             {/* ... (LanguageSwitcher y Book Visit sin cambios) ... */}
             <LanguageSwitcher />
-            <Link
+            {/* <Link
               href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-primary text-white shadow hover:bg-primary-hover h-10 px-6"
             >
               {dictionary.book}
-            </Link>
+            </Link> */}
           </div>
 
           {/* Botón Menú Móvil */}
@@ -223,15 +223,15 @@ export default function Navbar({ lang, dictionary, footerDictionary, servicesDic
                     ))}
                  </div>
                  {/* Botón Book Visit y Language Switcher */}
-                 <Link
-                  href={whatsappUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => setIsOpen(false)}
-                  className="mt-4 inline-flex items-center justify-center rounded-md text-xl font-medium transition-colors bg-primary text-white shadow hover:bg-primary-hover h-12 px-8" // FIX: Reducido margen superior
-                >
-                  {dictionary.book}
-                </Link>
+                  {/* <Link
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsOpen(false)}
+                    className="mt-4 inline-flex items-center justify-center rounded-md text-xl font-medium transition-colors bg-primary text-white shadow hover:bg-primary-hover h-12 px-8" // FIX: Reducido margen superior
+                  >
+                    {dictionary.book}
+                  </Link> */}
                 <div className="mt-6"> {/* FIX: Reducido margen superior */}
                   <LanguageSwitcher />
                 </div>
