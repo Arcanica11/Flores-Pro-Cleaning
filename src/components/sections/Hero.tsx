@@ -23,9 +23,6 @@ const buttonVariants: Variants = { /* ... */ };
 
 export default function Hero({ lang, title, subtitle }: HeroProps) {
 
-  // FIX: Añadir console.log para ver las props recibidas DENTRO del componente Hero
-  console.log('[Hero.tsx] Props recibidas:', { lang, title, subtitle });
-
   // Usar directamente las props o fallbacks
   const displayTitle = title ?? " ";
   const displaySubtitle = subtitle;

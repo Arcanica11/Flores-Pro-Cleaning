@@ -103,7 +103,7 @@ export const dictionary = {
     "contact_email": "floresprocleaning@gmail.com",
     "contact_phone": "(512) 367-0154",
     "copyright": "© 2025 Flores Pro-Cleaning. All rights reserved.",
-    "credits": ""
+    "credits": "Created by RuedaLaRolamedia.com"
   },
   "services_page": {
     "title": "Our Services",

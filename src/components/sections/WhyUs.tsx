@@ -46,7 +46,7 @@ export default function WhyUs({ lang, dictionary }: { lang: 'es' | 'en'; diction
             <p className="text-gray-600 leading-relaxed mb-8">
               {dictionary.description}
             </p>
-            <Button href={`/${lang}/services`}>
+            <Button href={`/${lang}/about`}>
               {dictionary.button}
             </Button>
           </div>
