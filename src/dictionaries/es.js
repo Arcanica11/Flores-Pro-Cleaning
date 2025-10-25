@@ -57,6 +57,9 @@ export const dictionary = {
         "email": "Correo Electrónico",
         "phone": "Teléfono",
         "submit": "Confirmar Cita",
+        "submitting": "Enviando Solicitud...", // NUEVO
+        "success_message": "¡Gracias! Hemos recibido tu solicitud y te contactaremos pronto.", // NUEVO
+        "error_message": "Lo sentimos, algo salió mal. Por favor, inténtalo de nuevo o llámanos.", // NUEVO
         "errors": {
             "required": "Este campo es obligatorio",
             "invalid_email": "Por favor, ingrese un correo válido"

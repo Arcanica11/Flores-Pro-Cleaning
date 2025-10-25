@@ -57,6 +57,9 @@ export const dictionary = {
         "email": "Email",
         "phone": "Phone",
         "submit": "Confirm Appointment",
+        "submitting": "Sending Request...",
+        "success_message": "Thank you! We've received your request and will contact you shortly.",
+        "error_message": "Sorry, something went wrong. Please try again or call us.",
         "errors": {
             "required": "This field is required",
             "invalid_email": "Please enter a valid email"
